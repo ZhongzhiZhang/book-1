@@ -1,0 +1,24 @@
+{
+  "bio" : {
+    "favorite_foods" : [ "pizza", "breakfast food" ],
+    "programming_languages" : {
+    	"most_experience": ["HTML","CSS","JavaScript","Python","C++","Java"],
+    	"some_experience": ["C","Scala","MySQL","MongoDB","Elixir"]
+    },
+    "experiences": [
+        ["Lab For Playful Computation","Website Designer","Creating Android app to teach kids music","studying elixir to be used in web application that also teaches kids music."],
+        ["IT Support in Department of Molecular,Cellular, and Developmental Biology At CU Boulder","created some websites to showcase lab and department research","Creating Web Application using MySQL,Python,JavaScript,and HTML to streamline costs for a poster printer that is used by the department"],
+    	["Student Technician for General Desktop Support","Removed viruses from both Mac and PC","imaged computers","solved various software problems on consumer electronics."]
+    ],
+    "educations":[
+    	["University of Colorado at Boulder"],
+    	["B.S. Computer Science","Minor in Spanish","Minor in Technology,Arts,and Media"],
+    	["3rd year in undergraduate program"]
+    ],
+    "contact_infos":[
+    	["zachary.lamb@colorado.edu"],
+    	["zachlamb.github.io/website"],
+    	["https://www.linkedin.com/in/lambzachary"]
+    ]
+  }
+}

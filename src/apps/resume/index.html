@@ -1,11 +1,10 @@
 <!DOCTYPE html>
   <html>
     <head>
-      <!--Import Google Icon Font-->
+       <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
@@ -18,29 +17,99 @@
       <div class="container">
 
         <h1>Zach Lamb</h1>
-
-        <h2>Favorite Programming Languages</h2>
-        <ul class="collection">
-          <li class="collection-item">Javascript</li>
-          <li class="collection-item">Elixir</li>
-        </ul>
-
-        <h2>Favorite Food</h2>
-        <ul class="collection" id="foods">
-        </ul>
+        <div class="row">
+          <div class="col s12">
+            <ul class="tabs">
+              <li class="tab col s3"><a class="active" href="#programming_languages">Programming Languages</a></li>
+              <li class="tab col s3"><a href="#favorite_food">Favorite Food</a></li>
+              <li class="tab col s3 "><a href="#experience">Experience</a></li>
+              <li class="tab col s3"><a href="#education">Education</a></li>
+            </ul>
+          </div>
+            <div id="programming_languages" class="col s12">
+              <div class="row">
+                <div class="col s12">
+                  <ul class="tabs">
+                    <li class="tab col s6"><a class="active" href="#most_experience">Most Experience</a></li>
+                    <li class="tab col s6"><a href="#some_experience">Some Experience</a></li>
+                  </ul>
+                </div>
+                <div id="most_experience" class="col s12">
+                  <h2>Programming Languages With The Most Experience</h2>
+                  <ul class="collection" id="most_experience">
+                  </ul>
+                </div>
+                <div id="some_experience" class="col s12">
+                  <h2>Programming Languages With Some Experience</h2>
+                  <ul class="collection" id="some_experience">
+                  </ul>
+                </div>
+            </div>
+          </div>
+            <div id="favorite_food" class="col s12">
+              <h2>Favorite Food</h2>
+              <ul class="collection" id="foods">
+              </ul>
+            </div>
+            <div id="experience" class="col s12">
+              <h2>Experience</h2>
+              <ul class="collection" id="experiences">
+              </ul>
+            </div>
+            <div id="education" class="col s12">
+               <h2>Education</h2>
+              <ul class="collection" id="education">
+              </ul>
+            </div>
+          </div>
 
       </div>
 
       <script>
-
         // create a firebase reference to the root
-        var ref = new Firebase('https://hello-ucdd2.firebaseio.com/')
+        var ref = new Firebase('https://hello-ucdd2016.firebaseio.com/')
 
         // read data from the location bio/favorite_foods, only once
-        ref.child('bio/favorite_foods').once('value', function(snapshot){
+        ref.child('bio/favorite_foods').once('value', function(snapshot)
+        {
           var foods = snapshot.val()
           foods.forEach(function(food){
             $('#foods').append('<li class="collection-item">' + food + '</li>')
+          })
+        })
+
+        // read data from the location bio/programming_languages/most_experience, only once
+        ref.child('bio/programming_languages/most_experience').once('value', function(snapshot)
+        {
+          var most_experience = snapshot.val()
+          most_experience.forEach(function(most_experience){
+            $('#most_experience').append('<li class="collection-item">' + most_experience + '</li>')
+          })
+        })
+        // read data from the location bio/programming_languages/most_experience, only once
+        ref.child('bio/programming_languages/some_experience').once('value', function(snapshot)
+        {
+          var some_experience = snapshot.val()
+          some_experience.forEach(function(some_experience){
+            $('#some_experience').append('<li class="collection-item">' + some_experience + '</li>')
+          })
+        })
+
+        // read data from the location bio/experiences, only once
+        ref.child('bio/experiences').once('value', function(snapshot)
+        {
+          var experiences = snapshot.val()
+          experiences.forEach(function(experience){
+            $('#experiences').append('<li class="collection-item">' + experience + '</li>')
+          })
+        })
+
+        // read data from the location bio/education, only once
+        ref.child('bio/educations').once('value', function(snapshot)
+        {
+          var educations = snapshot.val()
+          educations.forEach(function(education){
+            $('#education').append('<li class="collection-item">' + education + '</li>')
           })
         })
       </script>
