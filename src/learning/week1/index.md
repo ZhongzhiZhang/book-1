@@ -24,6 +24,9 @@ Deployed At: https://ucdd2bookuno.firebaseapp.com/
 * [X] Add more data to enrich your personal resume app. Data must include typical items that go on your resume.
 * [X] The data must be pulled from Firebase in realtime, rather than hardcoded.
 
+####Deployed
+Deployed At: https://hello-ucdd2016.firebaseapp.com/apps/resume/
+
 ### Submission
 
 * __Commit/Push__ your source code to Github.
