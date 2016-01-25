@@ -1,7 +1,6 @@
 
         // create a firebase reference to the root
         var ref = new Firebase('https://hello-ucdd2016.firebaseio.com/')
-        var refGroup = new Firebase('https://ucdd2bookuno.firebaseio.com/')
         // read data from the location bio/favorite_foods, only once
         ref.child('bio/favorite_foods').once('value', function(snapshot)
         {
@@ -43,23 +42,5 @@
           var educations = snapshot.val()
           educations.forEach(function(education){
             $('#education').append('<li class="collection-item">' + education + '</li>')
-          })
-        })
-        // tasks section
-
-        refGroup.child('todos/').once('value',function(snapshot)
-        {
-          var tasks = snapshot.val()
-          tasks.forEach(function(task){
-            if(task.assign == "zachlamb" || "ZachLamb"){ 
-              $('task').append('<div class="col s12 m6">'+
-                          '<div class="card blue-grey darken-1">'
-                          +'<div class="card-content black-text">'+
-                          '<span class="card-title collection-item '+task.priority + '">'+ task.title + '</span>'+'<p>Deadline: '+task.deadline+'        Priority: '+ task.priority +'  Type: '+ task.type +'</p>' + '</div>'
-                          +'<div class="card-action">'+'<a href="#">Complete</a>\'</div>'+
-                          
-                          '</div>'+
-                          '</div>')
-            }
           })
         })

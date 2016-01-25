@@ -21,7 +21,7 @@
 
         <div class="row">
           <div class="input-field col s12">
-            <input value="" id="email" type="text" class="validate">
+            <input id="email" type="text" class="validate">
             <label for="email">Email</label>
           </div>
         </div>
@@ -40,18 +40,34 @@
       </div>
 
       <script>
+        var root = new Firebase('https://hello-ucdd2016.firebaseio.com/')
+        var emailRef = root.child('emails/')
 
         $('#submit').click(function(){
           console.log('the submit button is clicked')
 
-          // TODO: add code to submit an email address to your own Firebase
+          var email = $('#email').val()
+          console.log('the email is', email)
+          var taskObject = [email]
 
+          var newTaskRef = taskListRef.push()
+          newTaskRef.set(taskObject)
         })
 
+        // IMPORTANT!! initialize materializecss select
+        $(document).ready(function() {
+          $('select').material_select();
+        });
 
-        // TODO: add code to pull emaill addresses from your own Firebase,
-        // and populate "#emails" with these email addresses
-
+        emailRef.on('value', function(snapshot){
+          $('#emails').empty();
+          var emails = snapshot.val();
+          console.log(emails)
+          for (var key in emails) {
+            var email = emails[key];
+            $('#emails').append('<li class="collection-item">' + email + '</li>');
+          }
+        });
 
       </script>
     </body>
