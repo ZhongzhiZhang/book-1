@@ -24,15 +24,16 @@
     <script src="/js/leaflet.label.js"></script>
 
 
-    <nav class = "green">
+     <nav class = "green">
       <div class="nav-wrapper">
         <a href="#" class="brand-logo center">Garages</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="index.html">Home</a></li>
           <li><a href="garages.html">Garages</a></li>
           <li><a href="garages_map.html">Map</a></li>
         </ul>
-        <ul class="side-nav" id="mobile-demo">
+         <ul class="side-nav" id="mobile-demo">
           <li><a href="index.html">Home</a></li>
           <li><a href="garages.html">Garages</a></li>
           <li><a href="garages_map.html">Map</a></li>
@@ -112,6 +113,16 @@
         })
     }
     </script>
+
+    <script>
+          $('.button-collapse').sideNav({
+            menuWidth: 240, // Default is 240
+            edge: 'left', // Choose the horizontal origin
+            closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+            }
+            );
+        </script>
+
 </body>
 
 </html>
