@@ -43,7 +43,7 @@ their current statuses ([garages_map.html](/apps/parking/garages_map.html)).
   important information such as the number of open parking spaces, cost ...etc.
 * [x] There should be an index page that serves as a landing page to these
 two pages ([index.html](/apps/parking/index.html)).
-* [ ] The information on these two pages should be updated / refreshed in realtime.
+* [x] The information on these two pages should be updated / refreshed in realtime.
 
 ## Individual Learning
 
