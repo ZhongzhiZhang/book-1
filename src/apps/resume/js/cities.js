@@ -55,8 +55,12 @@ function mapCity(city,name){
 }
 function displayCity(city, name){
   // console.log('displayCity', city)
-  // console.log(city.currently.summary)
-  $('#cities').append('<div class="card"><div class="card-image waves-effect waves-block waves-light center-align"><canvas class=" '+ city.currently.icon + '"></canvas></div><div class="card-content"><span class="card-title activator grey-text text-darken-4">'+ name +'<i class="material-icons right">more_vert</i></span><p>'+ city.currently.summary+ '</p></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">'+ name + '<i class="material-icons right">close</i></span><p>'+ JSON.stringify(city.currently) + '</p></div></div>')
+   console.log(city.currently)
+  $('#cities').append('<div class="col s12 m6"></div><div class="card"><div class="card-image waves-effect waves-block waves-light center-align"><canvas class=" '
+    +city.currently.icon + '"></canvas></div><div class="card-content"><span class="card-title activator grey-text text-darken-4">'+ name 
+    +'<i class="material-icons right">more_vert</i></span><p>'
+    + city.currently.summary+ '</p></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">'
+    + name + '<i class="material-icons right">close</i></span> <div class="center-align"><p>'+ city.currently.apparentTemperature + '</p><object data="images/SVG/Degrees-Fahrenheit.svg" type="image/svg+xml"></object></div></div></div>')
    //    '<li class="collection-item avatar"> <canvas class="' + city.currently.icon + '" width="98" height="98"></canvas> <span class="title">'+ name + '</span> <p>' 
    // + '<br>' +    ' humidity = ' +
    //  JSON.stringify(city.currently) + '</p></li>'
