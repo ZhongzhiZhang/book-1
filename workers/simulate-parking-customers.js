@@ -59,8 +59,8 @@ function leave(person) {
 
 function clear() {
     // TODO: remove all people from the Firebase
-    // var ref = new Firebase('your-firebase-url')
-    // ...
+    var ref = new Firebase('https://hello-ucdd2016.firebaseio.com/people')
+    ref.remove()
 }
 // clear the firebase, so that the simulation always starts from no one
 clear()
