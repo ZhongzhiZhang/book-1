@@ -44,6 +44,17 @@ function leave(person) {
         // TODO: remove this person from the Firebase
         // var ref = new Firebase('your-firebase-url')
         // ...
+    var ref = new Firebase('https://hello-ucdd2016.firebaseio.com/people')
+    var onComplete = function(error) {
+        if (error) {
+            console.log('Synchronization failed');
+        } else {
+            console.log('Synchronization succeeded');
+        }
+    };
+
+    ref.child(person.name).remove(onComplete);
+
 }
 
 function clear() {
