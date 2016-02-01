@@ -23,23 +23,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
     <script src="/js/leaflet.label.js"></script>
 
-
-     <nav class = "green darken-4">
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo center">Garages</a>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="garages.html">Garages</a></li>
-          <li><a href="garages_map.html">Map</a></li>
-        </ul>
-         <ul class="side-nav" id="mobile-demo">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="garages.html">Garages</a></li>
-          <li><a href="garages_map.html">Map</a></li>
-        </ul>
-      </div>
-     </nav>
+    <nav class="green darken-4">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">Garages</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="garages.html">Garages</a></li>
+                <li><a href="garages_map.html">Map</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="garages.html">Garages</a></li>
+                <li><a href="garages_map.html">Map</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="container">
 
@@ -51,23 +50,25 @@
     // create a firebase reference to the root
     var ref = new Firebase('https://publicdata-parking.firebaseio.com');
     var ref_users = new Firebase('https://hello-ucdd2016.firebaseio.com');
-
     var data
+    var garages
+    var people
         // read data from the location san_francisco/garages, only once
     ref.child('san_francisco/garages').on('value', function(snapshot) {
         data = snapshot.val()
         console.log('data is loaded', data)
-        var garages = _.filter(data, function(d) {
+        garages = _.filter(data, function(d) {
             return _.has(d, 'open_spaces')
         })
         drawGarages(garages)
+        drawUsers(people)
     })
 
     ref_users.child('people').on('value', function(snapshot) {
         data = snapshot.val()
+        people = data
         console.log('data is loaded', data)
-        })
-
+        drawGarages(garages)
         drawUsers(people)
     })
 
@@ -121,35 +122,32 @@
             // add the circle layer to the makers layer group
             markersLayerGroup.addLayer(circle)
         })
+    }
 
     function drawUsers(people) {
         // clear all existing markers (if any)
-        markersLayerGroup.clearLayers()
         _.forEach(people, function(person) {
-            var points = person.lat
-
             var latlng = [person.lat, person.lon]
                 // create a circle layer
             var circle = L.circle(latlng, 15, {
-                fillOpacity: 0.5,
-                color: 'blue',
-                fillColor: 'blue'
-            }).bindLabel(person.key())
-
-            // add the circle layer to the makers layer group
+                    fillOpacity: 0.5,
+                    color: 'blue',
+                    fillColor: 'blue'
+                }).bindLabel(person)
+                // add the circle layer to the makers layer group
             markersLayerGroup.addLayer(circle)
         })
     }
+
     </script>
 
     <script>
-          $('.button-collapse').sideNav({
-            menuWidth: 240, // Default is 240
-            edge: 'left', // Choose the horizontal origin
-            closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-            }
-            );
-        </script>
+    $('.button-collapse').sideNav({
+        menuWidth: 240, // Default is 240
+        edge: 'left', // Choose the horizontal origin
+        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    });
+    </script>
 
 </body>
 
