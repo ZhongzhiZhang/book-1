@@ -63,11 +63,11 @@
         drawGarages(garages)
     })
 
-    ref.child('people').on('value', function(snapshot) {
+    ref_users.child('people').on('value', function(snapshot) {
         data = snapshot.val()
         console.log('data is loaded', data)
         })
-    
+
         drawUsers(people)
     })
 
