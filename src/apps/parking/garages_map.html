@@ -50,6 +50,8 @@
     <script>
     // create a firebase reference to the root
     var ref = new Firebase('https://publicdata-parking.firebaseio.com');
+    var ref_users = new Firebase('https://hello-ucdd2016.firebaseio.com');
+
     var data
         // read data from the location san_francisco/garages, only once
     ref.child('san_francisco/garages').on('value', function(snapshot) {
@@ -60,6 +62,15 @@
         })
         drawGarages(garages)
     })
+
+    ref.child('people').on('value', function(snapshot) {
+        data = snapshot.val()
+        console.log('data is loaded', data)
+        })
+    
+        drawUsers(people)
+    })
+
     var attributionText = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a       href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>'
         // create the map
     var map = L.map($('#map')[0]).setView([37.78, -122.41], 13)
@@ -107,6 +118,24 @@
                     fillColor: 'red'
                 });
             };
+            // add the circle layer to the makers layer group
+            markersLayerGroup.addLayer(circle)
+        })
+
+    function drawUsers(people) {
+        // clear all existing markers (if any)
+        markersLayerGroup.clearLayers()
+        _.forEach(people, function(person) {
+            var points = person.lat
+
+            var latlng = [person.lat, person.lon]
+                // create a circle layer
+            var circle = L.circle(latlng, 15, {
+                fillOpacity: 0.5,
+                color: 'blue',
+                fillColor: 'blue'
+            }).bindLabel(person.key())
+
             // add the circle layer to the makers layer group
             markersLayerGroup.addLayer(circle)
         })
