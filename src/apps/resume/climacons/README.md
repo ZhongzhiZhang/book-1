@@ -1,5 +1,5 @@
-#Climacons
-75 climatically categorised pictographs for web and UI design by <a href="twitter.com/#!/adamwhitcroft">@adamwhitcroft</a>.
+#Climacons Font 1.0
+A bundled TrueType and @font-face kit for the Climacons set.
 
 Visit the <a href="http://adamwhitcroft.com/climacons/">Climacons</a> website for more information.
 

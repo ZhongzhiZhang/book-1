@@ -49,21 +49,55 @@ function mapCity(city,name){
       color: alertColor,
       fillColor: '#f03',
       fillOpacity: 0.5
-  }).bindLabel(name)
+  }).bindLabel(name.sepName())
   
   markersLayerGroup.addLayer(circle)
 }
 function displayCity(city, name){
-  // console.log('displayCity', city)
    console.log(city.currently)
+   var windDir = 'None'
+   if(1 <= city.currently.windBearing <= 89)
+   {
+      windDir = 'NE'
+   }
+   else if(city.currently.windBearing == 90 )
+   {
+      windDir = 'E'
+   }
+   else if(91 <= city.currently.windBearing <= 179)
+   {
+      windDir = 'SE'
+   }
+   else if(city.currently.windBearing == 180 )
+   {
+      windDir = 'S'
+   }
+   else if(181 <= city.currently.windBearing <= 269)
+   {
+      windDir = 'SW'
+   }
+   else if(city.currently.windBearing == 270 )
+   {
+      windDir = 'W'
+   }
+   else if(271 <= city.currently.windBearing <= 359)
+   {
+      windDir = 'NW'
+   }
+   else{
+      windDir = "N"
+   }
+   var humidity = city.currently.humidity * 100
+
   $('#cities').append('<div class="col s12 m6"></div><div class="card"><div class="card-image waves-effect waves-block waves-light center-align"><canvas class=" '
-    +city.currently.icon + '"></canvas></div><div class="card-content"><span class="card-title activator grey-text text-darken-4">'+ name 
+    +city.currently.icon + '"></canvas></div><div class="card-content"><span class="card-title activator grey-text text-darken-4">'+ name.sepName()
     +'<i class="material-icons right">more_vert</i></span><p>'
     + city.currently.summary+ '</p></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">'
-    + name + '<i class="material-icons right">close</i></span> <div class="center-align"><p>'+ city.currently.apparentTemperature + '</p><object data="images/SVG/Degrees-Fahrenheit.svg" type="image/svg+xml"></object></div></div></div>')
-   //    '<li class="collection-item avatar"> <canvas class="' + city.currently.icon + '" width="98" height="98"></canvas> <span class="title">'+ name + '</span> <p>' 
-   // + '<br>' +    ' humidity = ' +
-   //  JSON.stringify(city.currently) + '</p></li>'
+    + name + '<i class="material-icons right">close</i></span> <div id="'+name+'"></div></div></div>')
+// inner content
+   $('#'+name).append('<h3 class="carddetail">'+ city.currently.apparentTemperature
+    + ' </h3><h3 class="climacon fahrenheit carddetail"></h3><h5> Wind speed is '+ city.currently.windSpeed +' MPH</h5>'
+    +'<h5 class="climacon compass"> '+city.currently.windBearing+'&deg '+windDir+'</h5>'+'<h5 class="climacon umbrella"> '+humidity+' %'+'</h5>') 
   //skycons
   var skycons = new Skycons({"color": "pink"});
   var skycons = new Skycons(),list  = [
@@ -86,3 +120,14 @@ function displayCity(city, name){
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
 }
+String.prototype.sepName = function() {
+  if (this.localeCompare('newyork') == 0){
+    return this.replace("newyork", "New York");
+  }
+  else if(this.localeCompare('sanfrancisco') == 0){
+    return this.replace("sanfrancisco", "San Francisco");
+  }
+  else{
+    return this;
+  }
+};
