@@ -80,6 +80,7 @@
       _.forEach(garages, function(val, key){
 
         if(checkedOpen(val.hours, day, hour)){
+          console.log(garages)
           var rate = currentRate(val.rates, hour)
           var list = '<li>'+'<div class="collapsible-header black-text" id="key">'+'<i class="material-icons">room</i>'+val["friendlyName"]+'</div>'+'<div class="collapsible-body grey lighten-4">'+'Open Space: '+val.open_spaces+'<br>'+'Current rate: '+rate+'/Hrs'+'<br>'
           if (val.hours instanceof Array){

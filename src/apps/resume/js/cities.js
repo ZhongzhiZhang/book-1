@@ -50,18 +50,14 @@ function mapCity(city,name){
   if(city.hasOwnProperty('alerts'))
   {
     alertColor = 'red'
-    alert = city.alerts[0].title
-    alertBttn = '<a class="waves-effect waves-light btn modal-trigger" href="#'+name+ 'popup">More Info</a>'
-    $('#warnings').append('<div id="'+ name + 'popup" class="modal"><div class="modal-content"><h4>'+city.alerts[0].title+'</h4><p>'+
-  city.alerts[0].description +'</p></div><div class="modal-footer"><a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a></div></div>')
-
+    alert = city.alerts[0].title + '<br>' + '<p>Click on the button below to find out more info</p>'
   }
   var latlng = [city.latitude, city.longitude]
   var circle = L.circle(latlng, 10, {
       color: alertColor,
       fillColor: '#f03',
       fillOpacity: 0.5
-  }).bindPopup(name + '<br>' + alert + '<br>' + alertBttn)
+  }).bindPopup(name + '<br>' + alert)
   
   markersLayerGroup.addLayer(circle)
 }
@@ -100,14 +96,11 @@ function displayCity(city, name){
       windDir = "N"
    }
    var humidity = city.currently.humidity * 100
-
    var warning = ''
-  //  if(city.hasOwnProperty('alerts'))
-  // {
-  //   warning = '<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Warning</a>'+
-  // '<div id="modal1" class="modal"><div class="modal-content"><h4>'+city.alerts[0].title+'</h4><p>'+
-  // city.alerts[0].description +'</p></div><div class="modal-footer"><a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a></div></div>'
-  // }
+   if(city.hasOwnProperty('alerts'))
+  {
+    warning = city.alerts[0].description 
+  }
   $('#cities').append('<div class="col s12 m6"></div><div class="card"><div class="card-image waves-effect waves-block waves-light center-align"><canvas class=" '
     +city.currently.icon + '"></canvas></div><div class="card-content"><span class="card-title activator grey-text text-darken-4">'+ sepName(name)
     + '<i class="material-icons right iconCustom">more_vert</i></span><p>'
