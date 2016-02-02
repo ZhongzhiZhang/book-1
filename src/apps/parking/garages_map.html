@@ -13,8 +13,6 @@
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-
 </head>
 
 <body>
@@ -24,50 +22,72 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.0.0/lodash.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
     <script src="/js/leaflet.label.js"></script>
-    <script src="firebase.js"></script>
-    <script src="jquery.js"></script>
-    <script src="lodash.js"></script>
-    <script src="rsvp.js"></script>
-    <script src="geofire.js"></script>
 
-     <nav class = "green darken-4">
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo center">Garages</a>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="garages.html">Garages</a></li>
-          <li><a href="garages_map.html">Map</a></li>
-        </ul>
-         <ul class="side-nav" id="mobile-demo">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="garages.html">Garages</a></li>
-          <li><a href="garages_map.html">Map</a></li>
-        </ul>
-      </div>
-     </nav>
+    <nav class="green darken-4">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">Garages Map</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="garages.html">Garages</a></li>
+                <li><a href="garages_map.html">Map</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="garages.html">Garages</a></li>
+                <li><a href="garages_map.html">Map</a></li>
+            </ul>
+        </div>
+    </nav>
 
-
+    <br>
     <div class="container">
-
-        <h1>Garages Map</h1>
-        <div id="map" style="height:500px"></div>
+        <div class="row">
+            <div class="col s12">
+                <div class="card green darken-4">
+                    <div class="card-content white-text">
+                        <span class="card-title">Realtime data:</span>
+                        <div id="map" style="height:500px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
-
-
     <script>
     // create a firebase reference to the root
-    var ref = new Firebase('https://publicdata-parking.firebaseio.com/');
+    var ref = new Firebase('https://publicdata-parking.firebaseio.com');
+    var ref_users = new Firebase('https://hello-ucdd2016.firebaseio.com');
+
+    var transitRef = new Firebase('https://publicdata-transit.firebaseio.com');
+
     var data
+    var garages
+    var people
+    var vehicles
         // read data from the location san_francisco/garages, only once
     ref.child('san_francisco/garages').on('value', function(snapshot) {
         data = snapshot.val()
-        console.log('data is loaded', data)
-        var garages = _.filter(data, function(d) {
+            // console.log('data is loaded', data)
+        //console.log('data is loaded', data)
+        garages = _.filter(data, function(d) {
             return _.has(d, 'open_spaces')
         })
         drawGarages(garages)
+        drawUsers(people)
+    })
+    ref_users.child('people').on('value', function(snapshot) {
+        data = snapshot.val()
+        people = data
+        //console.log('data is loaded', data)
+        drawGarages(garages)
+        drawUsers(people)
+    })
+    transitRef.child('sf-muni/vehicles').on('value', function(snapshot) {
+        data = snapshot.val()
+        vehicles = data
+        console.log('data is loaded', data)
+        drawBuses(vehicles)
     })
     var attributionText = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a       href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>'
         // create the map
@@ -83,10 +103,15 @@
         // add the makers layer group to the map
     markersLayerGroup.addTo(map)
         //TODO: Calculate Current Rate
+    var d = new Date()
+    var day = d.getDay()
+    var hour = d.getHours()
+    if (day == 0) {
+        day = 7
+    }
     var rate_period = 0;
     // TODO: Calculate Current Days Hours
-    var hour = 0
-        // visualize garages on a map
+    // visualize garages on a map
     function drawGarages(garages) {
         // clear all existing markers (if any)
         markersLayerGroup.clearLayers()
@@ -94,7 +119,9 @@
             var points = garage.points
             var latlng = [points[0], points[1]]
                 // create a circle layer
-            var curr_rate = garage.rates[rate_period].RATE
+                // console.log("Garage: " + garage)
+                // console.log("current rate: "+garage.rates)
+            var curr_rate = currentRate(garage.rates, hour)
             var curr_beg
             var circle = L.circle(latlng, 50, {
                 fillOpacity: 0.5
@@ -120,30 +147,102 @@
             markersLayerGroup.addLayer(circle)
         })
     }
-    </script>
-
-    <script>
-    var transitLine = 'X';
-    var transitRef = new Firebase('https://publicdata-transit.firebaseio.com/sf_muni');
-    var lineIndex = transitRef.child('index').child(transitLine);
-    lineIndex.on('child_added', function(snapshot) {
-        var id = snapshot.key();
-        transitRef.child('data').child(id).on('value', busUpdated);
-    });
-    lineIndex.on('child_removed', function(snapshot) {
-        var id = snapshot.key();
-        transitRef.child('data').child(id).off('value', busUpdated);
-    });
-    function busUpdated(snapshot) {
-        // Bus line 'X' changed location.
-        var info = snapshot.val();
-        // Retrieve latitude/longitude with info.lat/info.lon.
+    function currentRate(rates, hour) {
+        _.forEach(rates, function(rate) {
+            var begTime = parseInt(rate.BEG)
+            var endTime = parseInt(rate.END)
+            if (typeof(rate.BEG) != "undefined") {
+                var amPMBeg = rate.BEG.split(" ")
+                if (amPMBeg[1] == "AM") {
+                    if (parseInt(amPMBeg[0]) == 12) {
+                        begTime = 0
+                    }
+                } else {
+                    if (parseInt(amPMBeg[0]) < 12) {
+                        begTime = parseInt(amPMBeg[0]) + 12
+                    }
+                }
+            }
+            if (typeof(rate.END) != "undefined") {
+                var amPMEnd = rate.END.split(" ");
+                if (amPMEnd[1] == "AM") {
+                    if (parseInt(amPMEnd[0]) == 12) {
+                        endTime = 24
+                    }
+                } else {
+                    if (parseInt(amPMEnd[0]) < 12) {
+                        endTime = parseInt(amPMEnd[0]) + 12
+                    }
+                }
+            }
+            if ((parseInt(begTime) <= hour) && (hour < parseInt(endTime))) {
+                cr = rate.RATE
+            }
+        })
+        return cr
+    }
+    function drawUsers(people) {
+        // clear all existing markers (if any)
+        _.forEach(people, function(person) {
+            var latlng = [person.lat, person.lon]
+                // create a circle layer
+            var circle = L.circle(latlng, 15, {
+                fillOpacity: 0.5,
+                color: 'blue',
+                fillColor: 'blue'
+            }).bindLabel(person.name)
+            //console.log(person.name + " Added to Map")
+                // add the circle layer to the makers layer group
+            markersLayerGroup.addLayer(circle)
+        })
     }
 
 
-      </script>
+    function drawBuses(vehicles) {
+        // clear all existing markers (if any)
+        _.forEach(vehicles, function(bus) {
+            var latlng = [bus.lat, bus.lon]
+                // create a circle layer
+            var circle = L.circle(latlng, 30, {
+                fillOpacity: 0.5,
+                color: 'red',
+                fillColor: 'red'
+            }).bindLabel(bus.lon)
+            console.log(bus.lon + " Added to Map")
+            markersLayerGroup.addLayer(circle)
+        })
+    }
 
-    <script type="text/javascript" src="js/main.js"></script>
+
+//    function drawBuses(vehicles) {
+  //      // clear all existing markers (if any)
+    //    _.forEach(vehicles, function(bus) {
+      //      var latlng = [bus.lat, bus.lon]
+        //        // create a circle layer
+          //  var Icon = L.icon({
+            //iconUrl: 'bus.png',
+
+//            iconSize:     [38, 95], // size of the icon
+  //          shadowSize:   [0,0], // size of the shadow
+    //        iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+      //      shadowAnchor: [4, 62],  // the same for the shadow
+        //    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+          //  }).bindLabel(bus.lon)
+            //console.log(bus.lon + " Added to Map")
+            //markersLayerGroup.addLayer({icon: greenIcon})
+        //})
+
+
+
+    </script>
+
+    <script>
+    $('.button-collapse').sideNav({
+        menuWidth: 240, // Default is 240
+        edge: 'left', // Choose the horizontal origin
+        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    });
+    </script>
 
 </body>
 
