@@ -2,6 +2,52 @@
 <html>
 
 <head>
+
+    <style>
+    #circle_green {
+      width: 20px;
+      height: 20px;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      border-radius: 20px;
+      background: green;
+    }
+    #circle_red {
+      width: 20px;
+      height: 20px;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      border-radius: 20px;
+      background: red;
+    }
+    #circle_black {
+      width: 20px;
+      height: 20px;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      border-radius: 20px;
+      background: black;
+    }
+
+    #circle_blue {
+      width: 20px;
+      height: 20px;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      border-radius: 20px;
+      background: blue;
+    }
+
+    #circle_yellow {
+      width: 20px;
+      height: 20px;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      border-radius: 20px;
+      background: yellow;
+    }
+
+    </style>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
@@ -41,6 +87,8 @@
     </nav>
 
     <br>
+
+    <!-- Map -->
     <div class="container">
         <div class="row">
             <div class="col s12">
@@ -53,6 +101,23 @@
             </div>
         </div>
 
+    <!-- Key -->
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <div class="card green darken-4">
+                    <div class="card-content white-text">
+                        <span class="card-title">Map Key:</span>
+                        <div id="circle_green"></div>
+                        <div id="circle_yellow"></div>
+                        <div id="circle_red"></div>
+                        <div id="circle_blue"></div>
+                        <div id="circle_black"></div> 
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script>
     // create a firebase reference to the root
@@ -196,6 +261,8 @@
         edge: 'left', // Choose the horizontal origin
         closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
     });
+
+
     </script>
 
 </body>
