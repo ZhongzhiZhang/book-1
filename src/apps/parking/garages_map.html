@@ -54,7 +54,7 @@
         // read data from the location san_francisco/garages, only once
     ref.child('san_francisco/garages').on('value', function(snapshot) {
         data = snapshot.val()
-        console.log('data is loaded', data)
+        // console.log('data is loaded', data)
         var garages = _.filter(data, function(d) {
             return _.has(d, 'open_spaces')
         })
@@ -73,10 +73,13 @@
     var markersLayerGroup = L.layerGroup()
         // add the makers layer group to the map
     markersLayerGroup.addTo(map)
-        //TODO: Calculate Current Rate
+    //TODO: Calculate Current Rate
+    var d = new Date()
+    var day = d.getDay()
+    var hour = d.getHours()
+    if(day==0){day=7}
     var rate_period = 0;
     // TODO: Calculate Current Days Hours
-    var hour = 0
         // visualize garages on a map
     function drawGarages(garages) {
         // clear all existing markers (if any)
@@ -85,7 +88,9 @@
             var points = garage.points
             var latlng = [points[0], points[1]]
                 // create a circle layer
-            var curr_rate = garage.rates[rate_period].RATE
+            // console.log("Garage: " + garage)
+            // console.log("current rate: "+garage.rates)
+            var curr_rate = currentRate(garage.rates, hour)
             var curr_beg
             var circle = L.circle(latlng, 50, {
                 fillOpacity: 0.5
@@ -110,6 +115,42 @@
             // add the circle layer to the makers layer group
             markersLayerGroup.addLayer(circle)
         })
+    }
+    function currentRate(rates, hour){
+      _.forEach(rates, function(rate){
+          var begTime = parseInt(rate.BEG)
+          var endTime = parseInt(rate.END)
+          if(typeof(rate.BEG)!="undefined") {
+            var amPMBeg = rate.BEG.split(" ")
+            if(amPMBeg[1] == "AM") {
+              if(parseInt(amPMBeg[0]) == 12){
+                begTime = 0
+              }
+            }
+            else {
+              if(parseInt(amPMBeg[0]) < 12) {
+                begTime = parseInt(amPMBeg[0]) + 12
+              }
+            }
+          }
+          if(typeof(rate.END)!="undefined") {
+            var amPMEnd = rate.END.split(" ");
+            if(amPMEnd[1] == "AM") {
+              if(parseInt(amPMEnd[0]) == 12){
+                endTime = 24
+              }
+            }
+            else {
+              if(parseInt(amPMEnd[0]) < 12) {
+                endTime = parseInt(amPMEnd[0]) + 12
+              }
+            }
+          }
+          if ((parseInt(begTime) <= hour) && (hour < parseInt(endTime))) {
+            cr = rate.RATE
+          }
+      })
+      return cr
     }
     </script>
 

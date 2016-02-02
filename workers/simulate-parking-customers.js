@@ -47,9 +47,9 @@ function leave(person) {
     var ref = new Firebase('https://hello-ucdd2016.firebaseio.com/people')
     var onComplete = function(error) {
         if (error) {
-            console.log('Synchronization failed');
+            console.log('Leave Synchronization failed');
         } else {
-            console.log('Synchronization succeeded');
+            console.log('Leave Synchronization succeeded');
         }
     };
 
@@ -60,7 +60,15 @@ function leave(person) {
 function clear() {
     // TODO: remove all people from the Firebase
     var ref = new Firebase('https://hello-ucdd2016.firebaseio.com/people')
-    ref.remove()
+    var onComplete = function(error) {
+        if (error) {
+            console.log('Clear Synchronization failed');
+        } else {
+            console.log('Clear Synchronization succeeded');
+        }
+    };
+
+    ref.remove(onComplete)
 }
 // clear the firebase, so that the simulation always starts from no one
 clear()
