@@ -40,20 +40,18 @@
         </div>
     </nav>
 
-<br>
+    <br>
     <div class="container">
-      <div class="row">
-        <div class="col s12">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">Realtime map</span>
-                      <div id="map" style="height:500px"></div>
+        <div class="row">
+            <div class="col s12">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Realtime map</span>
+                        <div id="map" style="height:500px"></div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-
-
 
     </div>
     <script>
@@ -66,8 +64,7 @@
         // read data from the location san_francisco/garages, only once
     ref.child('san_francisco/garages').on('value', function(snapshot) {
         data = snapshot.val()
-        // console.log('data is loaded', data)
-        var garages = _.filter(data, function(d) {
+            // console.log('data is loaded', data)
         console.log('data is loaded', data)
         garages = _.filter(data, function(d) {
             return _.has(d, 'open_spaces')
@@ -75,7 +72,6 @@
         drawGarages(garages)
         drawUsers(people)
     })
-
     ref_users.child('people').on('value', function(snapshot) {
         data = snapshot.val()
         people = data
@@ -83,7 +79,6 @@
         drawGarages(garages)
         drawUsers(people)
     })
-
     var attributionText = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a       href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>'
         // create the map
     var map = L.map($('#map')[0]).setView([37.78, -122.41], 13)
@@ -97,14 +92,16 @@
     var markersLayerGroup = L.layerGroup()
         // add the makers layer group to the map
     markersLayerGroup.addTo(map)
-    //TODO: Calculate Current Rate
+        //TODO: Calculate Current Rate
     var d = new Date()
     var day = d.getDay()
     var hour = d.getHours()
-    if(day==0){day=7}
+    if (day == 0) {
+        day = 7
+    }
     var rate_period = 0;
     // TODO: Calculate Current Days Hours
-        // visualize garages on a map
+    // visualize garages on a map
     function drawGarages(garages) {
         // clear all existing markers (if any)
         markersLayerGroup.clearLayers()
@@ -112,8 +109,8 @@
             var points = garage.points
             var latlng = [points[0], points[1]]
                 // create a circle layer
-            // console.log("Garage: " + garage)
-            // console.log("current rate: "+garage.rates)
+                // console.log("Garage: " + garage)
+                // console.log("current rate: "+garage.rates)
             var curr_rate = currentRate(garage.rates, hour)
             var curr_beg
             var circle = L.circle(latlng, 50, {
@@ -140,41 +137,40 @@
             markersLayerGroup.addLayer(circle)
         })
     }
-    function currentRate(rates, hour){
-      _.forEach(rates, function(rate){
-          var begTime = parseInt(rate.BEG)
-          var endTime = parseInt(rate.END)
-          if(typeof(rate.BEG)!="undefined") {
-            var amPMBeg = rate.BEG.split(" ")
-            if(amPMBeg[1] == "AM") {
-              if(parseInt(amPMBeg[0]) == 12){
-                begTime = 0
-              }
+
+    function currentRate(rates, hour) {
+        _.forEach(rates, function(rate) {
+            var begTime = parseInt(rate.BEG)
+            var endTime = parseInt(rate.END)
+            if (typeof(rate.BEG) != "undefined") {
+                var amPMBeg = rate.BEG.split(" ")
+                if (amPMBeg[1] == "AM") {
+                    if (parseInt(amPMBeg[0]) == 12) {
+                        begTime = 0
+                    }
+                } else {
+                    if (parseInt(amPMBeg[0]) < 12) {
+                        begTime = parseInt(amPMBeg[0]) + 12
+                    }
+                }
             }
-            else {
-              if(parseInt(amPMBeg[0]) < 12) {
-                begTime = parseInt(amPMBeg[0]) + 12
-              }
+            if (typeof(rate.END) != "undefined") {
+                var amPMEnd = rate.END.split(" ");
+                if (amPMEnd[1] == "AM") {
+                    if (parseInt(amPMEnd[0]) == 12) {
+                        endTime = 24
+                    }
+                } else {
+                    if (parseInt(amPMEnd[0]) < 12) {
+                        endTime = parseInt(amPMEnd[0]) + 12
+                    }
+                }
             }
-          }
-          if(typeof(rate.END)!="undefined") {
-            var amPMEnd = rate.END.split(" ");
-            if(amPMEnd[1] == "AM") {
-              if(parseInt(amPMEnd[0]) == 12){
-                endTime = 24
-              }
+            if ((parseInt(begTime) <= hour) && (hour < parseInt(endTime))) {
+                cr = rate.RATE
             }
-            else {
-              if(parseInt(amPMEnd[0]) < 12) {
-                endTime = parseInt(amPMEnd[0]) + 12
-              }
-            }
-          }
-          if ((parseInt(begTime) <= hour) && (hour < parseInt(endTime))) {
-            cr = rate.RATE
-          }
-      })
-      return cr
+        })
+        return cr
     }
 
     function drawUsers(people) {
@@ -183,12 +179,11 @@
             var latlng = [person.lat, person.lon]
                 // create a circle layer
             var circle = L.circle(latlng, 15, {
-                    fillOpacity: 0.5,
-                    color: 'blue',
-                    fillColor: 'blue'
-                }).bindLabel(person.name)
-
-                console.log(person.name + " Added to Map")
+                fillOpacity: 0.5,
+                color: 'blue',
+                fillColor: 'blue'
+            }).bindLabel(person.name)
+            console.log(person.name + " Added to Map")
                 // add the circle layer to the makers layer group
             markersLayerGroup.addLayer(circle)
         })
