@@ -143,7 +143,9 @@
                     fillOpacity: 0.5,
                     color: 'blue',
                     fillColor: 'blue'
-                }).bindLabel(person)
+                }).bindLabel(person.name)
+
+                console.log(person.name + " Added to Map")
                 // add the circle layer to the makers layer group
             markersLayerGroup.addLayer(circle)
         })

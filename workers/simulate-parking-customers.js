@@ -35,15 +35,13 @@ function enter(person) {
     var ref = new Firebase('https://hello-ucdd2016.firebaseio.com/people')
     ref.child(person.name).set({
         lat: person.lat,
-        lon: person.lon
+        lon: person.lon,
+        name : person.name
     });
 }
 
 function leave(person) {
     console.log('leave', person)
-        // TODO: remove this person from the Firebase
-        // var ref = new Firebase('your-firebase-url')
-        // ...
     var ref = new Firebase('https://hello-ucdd2016.firebaseio.com/people')
     var onComplete = function(error) {
         if (error) {
