@@ -294,7 +294,7 @@
                 var busIcon = new Icon();
                 var circle = L.marker(latlng, {
                     icon: busIcon
-                }).bindLabel(bus.id).addTo(map);
+                }).bindLabel("Route:"+bus.id).addTo(map);
                 markersLayerGroup.addLayer(circle)
             })
         }
