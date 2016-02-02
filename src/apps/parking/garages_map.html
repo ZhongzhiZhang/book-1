@@ -92,11 +92,9 @@
     </nav>
 
     <br>
-
-    <!-- Map -->
-     <div class="container">
+    <div class="container">
         <div class="row">
-            <div class="col s6">
+            <div class="col s12">
                 <div class="card green darken-4">
                     <div class="card-content white-text">
                         <span class="card-title">Realtime data:</span>
@@ -123,25 +121,26 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
-
-
-
-
-
+    </div>
     <script>
     // create a firebase reference to the root
     var ref = new Firebase('https://publicdata-parking.firebaseio.com');
     var ref_users = new Firebase('https://hello-ucdd2016.firebaseio.com');
+
+    var transitRef = new Firebase('https://publicdata-transit.firebaseio.com');
+
     var data
     var garages
     var people
+    var vehicles
         // read data from the location san_francisco/garages, only once
     ref.child('san_francisco/garages').on('value', function(snapshot) {
         data = snapshot.val()
             // console.log('data is loaded', data)
-        console.log('data is loaded', data)
+        //console.log('data is loaded', data)
         garages = _.filter(data, function(d) {
             return _.has(d, 'open_spaces')
         })
@@ -151,9 +150,15 @@
     ref_users.child('people').on('value', function(snapshot) {
         data = snapshot.val()
         people = data
-        console.log('data is loaded', data)
+        //console.log('data is loaded', data)
         drawGarages(garages)
         drawUsers(people)
+    })
+    transitRef.child('sf-muni/vehicles').on('value', function(snapshot) {
+        data = snapshot.val()
+        vehicles = data
+        console.log('data is loaded', data)
+        drawBuses(vehicles)
     })
     var attributionText = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a       href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>'
         // create the map
@@ -213,7 +218,6 @@
             markersLayerGroup.addLayer(circle)
         })
     }
-
     function currentRate(rates, hour) {
         _.forEach(rates, function(rate) {
             var begTime = parseInt(rate.BEG)
@@ -248,7 +252,6 @@
         })
         return cr
     }
-
     function drawUsers(people) {
         // clear all existing markers (if any)
         _.forEach(people, function(person) {
@@ -259,11 +262,36 @@
                 color: 'blue',
                 fillColor: 'blue'
             }).bindLabel(person.name)
-            console.log(person.name + " Added to Map")
+            //console.log(person.name + " Added to Map")
                 // add the circle layer to the makers layer group
             markersLayerGroup.addLayer(circle)
         })
     }
+
+
+
+    function drawBuses(vehicles) {
+        // clear all existing markers (if any)
+        _.forEach(vehicles, function (bus, key) {
+            var latlng = [bus.lat, bus.lon]
+            // create a circle layer
+            var Icon = L.Icon.extend({
+                options: {
+                    iconUrl: "bus.png",
+                    iconSize: [10, 10],
+                    shadowSize: [0, 0]
+                }
+            })
+            console.log(bus.id + " Added to Map")
+            var busIcon = new Icon();
+            var circle = L.marker(latlng, {icon: busIcon}).bindLabel(bus.id).addTo(map);
+
+            markersLayerGroup.addLayer(circle)
+        })
+
+    }
+
+
     </script>
 
     <script>
@@ -272,8 +300,6 @@
         edge: 'left', // Choose the horizontal origin
         closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
     });
-
-
     </script>
 
 </body>

@@ -9,9 +9,10 @@ Everything I've learned from UCDD 2 - Spring 2016.
 ## Apps
 * [ToDos](apps/todos/)
 * [Resume](apps/resume/)
-* [ReactJS](apps/resume/react)
 * [Parking](apps/parking/)
 * [ReactJS](apps/parking/react)
+* [ReactJS](apps/resume/react)
+
 
 ## Learning
 * [Week 4](learning/week4) <span class="chip red">NEW</span>
