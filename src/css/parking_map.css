@@ -1,0 +1,49 @@
+
+    #circle_green {
+        width: 20px;
+        height: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+        background: green;
+    }
+    
+    #circle_red {
+        width: 20px;
+        height: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+        background: red;
+    }
+    
+    #circle_black {
+        width: 20px;
+        height: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+        background: black;
+    }
+    
+    #circle_blue {
+        width: 20px;
+        height: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+        background: blue;
+    }
+    
+    #circle_yellow {
+        width: 20px;
+        height: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+        background: yellow;
+    }
+    
+    #container p {
+        display: inline
+    }
