@@ -304,12 +304,12 @@
 
                     var circle = L.marker(latlng, {
                         icon: busIcon
-                    }).addTo(map).bindLabel("Route:"+bus.id);
+                    }).addTo(markersLayerGroup).bindLabel("Route:"+bus.id);
 
                 }else if(bus.vtype=="train"){
                     var circle = L.marker(latlng, {
                         icon: trainIcon
-                    }).addTo(map).bindLabel("Route:"+bus.id);
+                    }).addTo(markersLayerGroup).bindLabel("Route:"+bus.id);
                 }
                 markersLayerGroup.addLayer(circle)
             })
