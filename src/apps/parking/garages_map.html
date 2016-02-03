@@ -266,11 +266,31 @@
                         shadowSize: [0, 0]
                     }
                 })
+                var Icon1 = L.Icon.extend({
+                    options: {
+                        iconUrl: "train.png",
+                        iconSize: [20, 20],
+                        shadowSize: [0, 0]
+                    }
+                })
                 console.log(bus.id + " Added to Map")
                 var busIcon = new Icon();
                 var circle = L.marker(latlng, {
                     icon: busIcon
                 }).addTo(map).bindLabel("Route:"+bus.id);
+
+                var trainIcon = new Icon1();
+                if(bus.vtype=="bus"){
+
+                    var circle = L.marker(latlng, {
+                        icon: busIcon
+                    }).addTo(map).bindLabel("Route:"+bus.id);
+
+                }else if(bus.vtype=="train"){
+                    var circle = L.marker(latlng, {
+                        icon: trainIcon
+                    }).addTo(map).bindLabel("Route:"+bus.id);
+                }
                 markersLayerGroup.addLayer(circle)
             })
         }
