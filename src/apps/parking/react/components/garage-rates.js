@@ -22,8 +22,7 @@ MyComponents.Rate = React.createClass({
     <div className="green darken-4">
       <div className="card-content white-text">
        <ul>
-          <li> {data}
-          </li>
+          <li> {data} </li>
        </ul>
       </div>
     </div>
