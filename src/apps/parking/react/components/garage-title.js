@@ -1,5 +1,6 @@
 MyComponents.GarageTitle = React.createClass({
   render: function() {
+
     return (
       <div className="card">
             <div className="card-image">
@@ -7,7 +8,11 @@ MyComponents.GarageTitle = React.createClass({
               <span className="card-title"><h1>{this.props.title}</h1></span>
             </div>
       </div>
+
     );
   }
 });
+
+
+
 
