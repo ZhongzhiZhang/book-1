@@ -8,12 +8,17 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
     <script src="lib/react.js"></script>
     <script src="lib/react-dom.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+
+
   </head>
   <body>
     <div class="container">
@@ -48,40 +53,77 @@
     <!-- render react components -->
     <script type="text/babel">
 
-      ReactDOM.render(
-        <MyComponents.NavBar/>,
-        $('#navbar').get(0)
+      //about section
+      var fire_about = new Firebase('https://hello-ucdd2016.firebaseio.com/')
+      fire_about.child('bio').once('value', function(snapshot){
+	      var data = snapshot.val();
+	      console.log('Loaded values from the webpage');
+	      // console.log('data is: ',data.contact_infos);
+    	  // var createFragment = Npm.require('react-addons-create-fragment');
+	      ReactDOM.render(
+	        <MyComponents.NavBar/>,
+	        $('#navbar').get(0)
+	      );
+
+	      ReactDOM.render(
+	        <MyComponents.About data={ data.contact_infos}/>,
+	        $('#about').get(0)
+	      );
+
+	      var skills = data.programming_languages
+
+	      ReactDOM.render(
+	        <MyComponents.SkillList skills={skills}/>,
+	        $('#skills').get(0)
       );
+	    });
+	var teamUno = new Firebase('https://ucdd2bookuno.firebaseio.com')
+    teamUno.child('todos').on('value', function(snapshot){
+	      var tasksUno = snapshot.val();
 
-      ReactDOM.render(
-        <MyComponents.About/>,
-        $('#about').get(0)
-      );
+	      ReactDOM.render(
+	        <MyComponents.TaskList tasks={tasksUno}/>,
+	        $('#tasks').get(0)
+	      );
+  	});
+        // my fave cities
+    var denverRef = new Firebase('https://publicdata-weather.firebaseio.com/denver');
+    var seattleRef = new Firebase('https://publicdata-weather.firebaseio.com/seattle');
+    var newYorkRef = new Firebase('https://publicdata-weather.firebaseio.com/newyork');
+    var sanfranciscoRef = new Firebase('https://publicdata-weather.firebaseio.com/sanfrancisco');
+    var chicagoRef = new Firebase('https://publicdata-weather.firebaseio.com/chicago');
+    //Global Cities 
+    var cities = {};
 
-      // TODO: load tasks data from Firebase
-      var tasks = [{name: 'go to the movies'}, {name: 'sleep'}]
-
-      ReactDOM.render(
-        <MyComponents.TaskList tasks={tasks}/>,
-        $('#tasks').get(0)
-      );
-
-      // TODO: load city weather data from Firebase
-      var cities = [{name: 'Austin'}, {name: 'New York'}]
-
+    //real time data
+    denverRef.on('value', function(snapshot){
+      updateVals(snapshot, "Denver");
+    });
+    seattleRef.on('value', function(snapshot){
+      updateVals(snapshot, "Seattle");
+    });
+    newYorkRef.on('value', function(snapshot){
+      updateVals(snapshot, "New York");
+    });
+    sanfranciscoRef.on('value', function(snapshot){
+      updateVals(snapshot, "San Francisco");
+    });
+    chicagoRef.on('value', function(snapshot){
+      updateVals(snapshot, "Chicago");
+    });
+    
+  
+    function updateVals(snapshot, name){
+      var city = snapshot.val()
+      
+      //Update the citys dictionary with the new values
+      cities[name] = snapshot.val();
+      
       ReactDOM.render(
         <MyComponents.CityList cities={cities}/>,
         $('#cities').get(0)
       );
-
-
-      // TODO: load skill data from Firebase
-      var skills = [{name: 'JavaScript', years: 5}, {name: 'Karate', years: 2}]
-
-      ReactDOM.render(
-        <MyComponents.SkillList skills={skills}/>,
-        $('#skills').get(0)
-      );
+    }
 
     </script>
   </body>
