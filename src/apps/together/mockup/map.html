@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+      <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.0.0/lodash.min.js"></script>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvjx2rX763ezVHsvdemCY3Fc3vBtsEygo&signed_in=true"></script>
+    <script>
+// In the following example, markers appear when the user clicks on the map.
+// Each marker is labeled with a single alphabetical character.
+var labels = '12345';
+var labelIndex = 0;
+
+function initialize() {
+  var boulder =  {lat:40.018420740127205 ,lng: -105.27825951576233};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 12,
+    center: boulder
+  });
+
+  // This event listener calls addMarker() when the map is clicked.
+  google.maps.event.addListener(map, 'click', function(event) {
+    addMarker(event.latLng, map);
+  });
+
+  // Add a marker at the center of the map.
+  addMarker(boulder, map);
+}
+
+// Adds a marker to the map.
+function addMarker(location, map) {
+  // Add the marker at the clicked location, and add the next-available label
+  // from the array of alphabetical characters.
+  var marker = new google.maps.Marker({
+    position: location,
+    label: labels[labelIndex++ % labels.length],
+    map: map
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+    <title>Bar Crawl</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 50%;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+  <nav class="black">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">
+              Bar Crawl Planning
+            </a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="index.html">Chat</a></li>
+                <li><a href="map.html">Map</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="index.html">Chat</a></li>
+                <li><a href="map.html">Map</a></li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+     <div class="container" id="map"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col 12">
+          <div class="card blue-grey darken-1">
+              <div class="card-content white-text">
+                <span class="card-title">Info</span>          
+          <ul>
+            <li>What collaborative activity can people do together using your app?
+
+            People can plan going out
+            </li>
+            <li>What is the ideal number of concurrent users (must be at least 10 but no more than 40)?
+
+            15-20
+            </li>
+            <li>What skills do people need in order to do this activity?
+
+            Just knowing how to use a map.
+            </li>
+            <li>Is this activity for fun or for something practical?
+
+            Fun. It could also be practical in the sense that you can track and make sure that your friends/loved ones are safe
+            </li>
+            <li>How can a person see what everyone else is doing?
+
+            Location of themselves on the app and the chat of course.
+            </li>
+            <li>How can a person see the most recent result of everyone's collaborative effort?
+
+            next to the chat pane, there is the "schedule" of the night.
+            </li>
+            <li>What can an admin see (i.e., God's mode)?
+
+            Admin cannot see chat as this is a privacy issue ,but admin can see what bars/clubs/places people are going to. Admin cannot see customers either.
+            </li>
+          </ul>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+            
+  </body>
+</html>
