@@ -1,0 +1,9 @@
+.masthead{
+    height:20%;
+    background-image:url("../images/platano.png");
+    background-repeat:no-repeat;
+}
+
+a.brand-logo{
+	padding-left:10px;
+}

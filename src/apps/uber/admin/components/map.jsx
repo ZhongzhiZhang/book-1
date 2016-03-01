@@ -11,11 +11,24 @@ class MapView extends React.Component {
       iconSize: [50, 50],
       shadowSize: [10, 10]
       })
+      var chipheadnotactive = L.icon({
+      iconUrl:  "../chipheadnotactive.png",
+      iconSize: [20, 20],
+      shadowSize: [10, 10]
+      })
+      
       var latlong = [p.lat , p.long]
       if (p.active == true){
       return <Marker position = {latlong} key={i} icon ={chiphead}>
         <Popup>
           <span><h5> Chip is here! At the {p.name}</h5></span>
+        </Popup>
+      </Marker>
+      }
+      else if (p.active == false) {
+        return <Marker position = {latlong} key={i} icon ={chipheadnotactive}>
+        <Popup>
+          <span><h5> Chip is not at the {p.name}</h5></span>
         </Popup>
       </Marker>
       }

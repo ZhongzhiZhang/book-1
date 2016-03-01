@@ -40,24 +40,24 @@ Create a high-fidelity mockup of your app. Your app should have three components
 
 [/apps/uber/mockup/](/apps/uber/mockup/index.html)
 
-* [ ] Contains your team's answers to the questions under Ideation.
-* [ ] Contains links to the client page and the admin page.
+* [X] Contains your team's answers to the questions under Ideation.
+* [X] Contains links to the client page and the admin page.
 
 ### Client
 
 [/apps/uber/mockup/client.html](/apps/uber/mockup/client.html)
 
-* [ ] A client can see where service providers are on a map
-* [ ] A client can see where he/she is on a map
-* [ ] A client can see details about a provider
-* [ ] A client can login and logout
+* [X] A client can see where service providers are on a map
+* [X] A client can see where he/she is on a map
+* [X] A client can see details about a provider
+* [X] A client can login and logout
 
 ### Admin
 
 [/apps/uber/mockup/admin.html](/apps/uber/mockup/admin.html)
 
-* [ ] An admin can see all the service providers
-* [ ] An admin can see all the clients
+* [X] An admin can see all the service providers
+* [X] An admin can see all the clients
 
 ## Tools
 * For non-map components, use [materializecss](http://materializecss.com/).
