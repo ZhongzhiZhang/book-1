@@ -1,0 +1,673 @@
+{
+  "groups" : {
+    "date" : "03-02-2016",
+    "id" : "00012",
+    "listOfUsers" : {
+      "\"zach\"" : {
+        "Mountain Sun & Pub Brewery" : {
+          "EndTime" : "19:00",
+          "StartTime" : "18:00"
+        }
+      }
+    },
+    "name" : "hello world",
+    "size" : 5
+  },
+  "users" : [ {
+    "group" : "0029182",
+    "id" : "029182",
+    "isGroupOwner" : 1,
+    "name" : "zach",
+    "selectedChoices" : "Mountain Sun Pub & Brewery"
+  } ],
+  "yelp" : {
+    "businesses" : [ {
+      "categories" : [ [ "Pubs", "pubs" ], [ "Burgers", "burgers" ], [ "Breweries", "breweries" ] ],
+      "display_phone" : "+1-303-546-0886",
+      "id" : "mountain-sun-pub-and-brewery-boulder",
+      "image_url" : "https://s3-media3.fl.yelpcdn.com/bphoto/_R2KurTHSG0dkg4Wr7rW_Q/ms.jpg",
+      "is_claimed" : true,
+      "is_closed" : false,
+      "location" : {
+        "address" : [ "1535 Pearl St" ],
+        "city" : "Boulder",
+        "coordinate" : {
+          "latitude" : 40.01916,
+          "longitude" : -105.2753
+        },
+        "country_code" : "US",
+        "display_address" : [ "1535 Pearl St", "Boulder, CO 80302" ],
+        "geo_accuracy" : 8.0,
+        "postal_code" : "80302",
+        "state_code" : "CO"
+      },
+      "menu_date_updated" : 1441943045,
+      "menu_provider" : "single_platform",
+      "mobile_url" : "http://m.yelp.com/biz/mountain-sun-pub-and-brewery-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA",
+      "name" : "Mountain Sun Pub & Brewery",
+      "phone" : "3035460886",
+      "rating" : 4.5,
+      "rating_img_url" : "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+      "rating_img_url_large" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+      "rating_img_url_small" : "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+      "review_count" : 763,
+      "snippet_image_url" : "http://s3-media1.fl.yelpcdn.com/photo/OezmmNMrvo0yHVIA5pSEUw/ms.jpg",
+      "snippet_text" : "Can't say enough good about the staff in this place. \nEveryone we came into contact with - was super polite and friendly. Cool, laid back, slightly hippie...",
+      "url" : "http://www.yelp.com/biz/mountain-sun-pub-and-brewery-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA"
+    }, {
+      "categories" : [ [ "Cocktail Bars", "cocktailbars" ], [ "Distilleries", "distilleries" ] ],
+      "display_phone" : "+1-720-400-1907",
+      "id" : "j-and-l-distilling-company-boulder",
+      "image_url" : "https://s3-media4.fl.yelpcdn.com/bphoto/l9bhRTW4n9EiJ6aYbh3kSQ/ms.jpg",
+      "is_claimed" : true,
+      "is_closed" : false,
+      "location" : {
+        "address" : [ "4843 Pearl St" ],
+        "city" : "Boulder",
+        "coordinate" : {
+          "latitude" : 40.0261931164324,
+          "longitude" : -105.24169089652
+        },
+        "country_code" : "US",
+        "display_address" : [ "4843 Pearl St", "Boulder, CO 80301" ],
+        "geo_accuracy" : 9.5,
+        "postal_code" : "80301",
+        "state_code" : "CO"
+      },
+      "mobile_url" : "http://m.yelp.com/biz/j-and-l-distilling-company-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA",
+      "name" : "J & L Distilling Company",
+      "phone" : "7204001907",
+      "rating" : 5.0,
+      "rating_img_url" : "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+      "rating_img_url_large" : "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+      "rating_img_url_small" : "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+      "review_count" : 32,
+      "snippet_image_url" : "http://s3-media2.fl.yelpcdn.com/photo/qAIgFjuMECjqjKl3xo4GQw/ms.jpg",
+      "snippet_text" : "I can't express how amazing this place is. I was on vacation from Maine and went there by my lonesome in August. The place was empty besides one of the...",
+      "url" : "http://www.yelp.com/biz/j-and-l-distilling-company-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA"
+    }, {
+      "categories" : [ [ "Bars", "bars" ], [ "Jazz & Blues", "jazzandblues" ] ],
+      "id" : "no-name-bar-boulder",
+      "image_url" : "https://s3-media2.fl.yelpcdn.com/bphoto/he2kmJ9YShOWIHRPLpgfFw/ms.jpg",
+      "is_claimed" : false,
+      "is_closed" : false,
+      "location" : {
+        "address" : [ "1325 Broadway Ave" ],
+        "city" : "Boulder",
+        "coordinate" : {
+          "latitude" : 40.0098882749544,
+          "longitude" : -105.278250668801
+        },
+        "country_code" : "US",
+        "display_address" : [ "1325 Broadway Ave", "Boulder, CO 80302" ],
+        "geo_accuracy" : 9.5,
+        "postal_code" : "80302",
+        "state_code" : "CO"
+      },
+      "mobile_url" : "http://m.yelp.com/biz/no-name-bar-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA",
+      "name" : "No Name Bar",
+      "rating" : 4.5,
+      "rating_img_url" : "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+      "rating_img_url_large" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+      "rating_img_url_small" : "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+      "review_count" : 15,
+      "snippet_image_url" : "http://s3-media1.fl.yelpcdn.com/photo/ut0O40H2PQHc2SrwuEi8Fg/ms.jpg",
+      "snippet_text" : "They say this is a \"dive\" bar, but I would have to disagree, it's more like a bar I went to in NYC a few years ago that was modeled after a speak easy from...",
+      "url" : "http://www.yelp.com/biz/no-name-bar-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA"
+    }, {
+      "categories" : [ [ "American (Traditional)", "tradamerican" ], [ "Sports Bars", "sportsbars" ] ],
+      "display_phone" : "+1-303-442-8162",
+      "id" : "dark-horse-boulder",
+      "image_url" : "https://s3-media1.fl.yelpcdn.com/bphoto/7KqcyQyzvsJiZ9DOfEgndw/ms.jpg",
+      "is_claimed" : true,
+      "is_closed" : false,
+      "location" : {
+        "address" : [ "2922 Baseline Rd" ],
+        "city" : "Boulder",
+        "coordinate" : {
+          "latitude" : 39.9998513,
+          "longitude" : -105.2552162
+        },
+        "country_code" : "US",
+        "display_address" : [ "2922 Baseline Rd", "Boulder, CO 80303" ],
+        "geo_accuracy" : 8.0,
+        "postal_code" : "80303",
+        "state_code" : "CO"
+      },
+      "menu_date_updated" : 1450872476,
+      "menu_provider" : "single_platform",
+      "mobile_url" : "http://m.yelp.com/biz/dark-horse-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA",
+      "name" : "Dark Horse",
+      "phone" : "3034428162",
+      "rating" : 4.0,
+      "rating_img_url" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+      "rating_img_url_large" : "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+      "rating_img_url_small" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+      "review_count" : 172,
+      "snippet_image_url" : "http://s3-media2.fl.yelpcdn.com/photo/dnNDzw-Mh527ZFAzf4jQag/ms.jpg",
+      "snippet_text" : "I come here, well, a lot. The drinks are totally mediocre but the burgers are the best! The Jiffy Burger might be my favorite thing on the menu. Probably...",
+      "url" : "http://www.yelp.com/biz/dark-horse-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA"
+    }, {
+      "categories" : [ [ "Pubs", "pubs" ], [ "American (Traditional)", "tradamerican" ] ],
+      "display_phone" : "+1-303-939-9900",
+      "id" : "pearl-street-pub-and-cellar-boulder-2",
+      "image_url" : "https://s3-media3.fl.yelpcdn.com/bphoto/Sy1V7Yu2sdrXWQ0ll84Cyg/ms.jpg",
+      "is_claimed" : false,
+      "is_closed" : false,
+      "location" : {
+        "address" : [ "1108 Pearl St" ],
+        "city" : "Boulder",
+        "coordinate" : {
+          "latitude" : 40.0176427313392,
+          "longitude" : -105.280774086714
+        },
+        "country_code" : "US",
+        "display_address" : [ "1108 Pearl St", "Boulder, CO 80302" ],
+        "geo_accuracy" : 9.5,
+        "postal_code" : "80302",
+        "state_code" : "CO"
+      },
+      "mobile_url" : "http://m.yelp.com/biz/pearl-street-pub-and-cellar-boulder-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA",
+      "name" : "Pearl Street Pub and Cellar",
+      "phone" : "3039399900",
+      "rating" : 4.0,
+      "rating_img_url" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+      "rating_img_url_large" : "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+      "rating_img_url_small" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+      "review_count" : 67,
+      "snippet_image_url" : "http://s3-media2.fl.yelpcdn.com/photo/v1laNGZ3WCDHNR9TqJMCVw/ms.jpg",
+      "snippet_text" : "We were roaming Pearl Street on a surprisingly nice Saturday afternoon in February, in need of a starter beverage and late lunch. The bar itself was full...",
+      "url" : "http://www.yelp.com/biz/pearl-street-pub-and-cellar-boulder-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA"
+    }, {
+      "categories" : [ [ "Bars", "bars" ], [ "American (New)", "newamerican" ] ],
+      "display_phone" : "+1-303-444-3535",
+      "id" : "the-west-end-tavern-boulder",
+      "image_url" : "https://s3-media1.fl.yelpcdn.com/bphoto/RlMJ1ZND3GR_I6FiRGGK_g/ms.jpg",
+      "is_claimed" : true,
+      "is_closed" : false,
+      "location" : {
+        "address" : [ "926 Pearl St" ],
+        "city" : "Boulder",
+        "coordinate" : {
+          "latitude" : 40.0170630942428,
+          "longitude" : -105.283259713121
+        },
+        "country_code" : "US",
+        "display_address" : [ "926 Pearl St", "Boulder, CO 80302" ],
+        "geo_accuracy" : 9.5,
+        "postal_code" : "80302",
+        "state_code" : "CO"
+      },
+      "menu_date_updated" : 1442317556,
+      "menu_provider" : "single_platform",
+      "mobile_url" : "http://m.yelp.com/biz/the-west-end-tavern-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA",
+      "name" : "The West End Tavern",
+      "phone" : "3034443535",
+      "rating" : 4.0,
+      "rating_img_url" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+      "rating_img_url_large" : "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+      "rating_img_url_small" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+      "review_count" : 293,
+      "snippet_image_url" : "http://s3-media2.fl.yelpcdn.com/photo/UM4xU_-7vhm3RboYAo2seg/ms.jpg",
+      "snippet_text" : "\"It's anchorman not anchor-lady! And that's a scientific fact! \" lol The West End Tavern restaurant of Boulder, Colorado mistakenly calls Veronica...",
+      "url" : "http://www.yelp.com/biz/the-west-end-tavern-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA"
+    }, {
+      "categories" : [ [ "Cocktail Bars", "cocktailbars" ] ],
+      "display_phone" : "+1-303-442-3050",
+      "id" : "the-bitter-bar-boulder",
+      "image_url" : "https://s3-media3.fl.yelpcdn.com/bphoto/13m5bTRwEbBC75_DGmu9oQ/ms.jpg",
+      "is_claimed" : true,
+      "is_closed" : false,
+      "location" : {
+        "address" : [ "835 Walnut St" ],
+        "city" : "Boulder",
+        "coordinate" : {
+          "latitude" : 40.0159731,
+          "longitude" : -105.2841448
+        },
+        "country_code" : "US",
+        "display_address" : [ "835 Walnut St", "Boulder, CO 80302" ],
+        "geo_accuracy" : 9.5,
+        "postal_code" : "80302",
+        "state_code" : "CO"
+      },
+      "menu_date_updated" : 1442095541,
+      "menu_provider" : "single_platform",
+      "mobile_url" : "http://m.yelp.com/biz/the-bitter-bar-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA",
+      "name" : "The Bitter Bar",
+      "phone" : "3034423050",
+      "rating" : 4.0,
+      "rating_img_url" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+      "rating_img_url_large" : "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+      "rating_img_url_small" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+      "review_count" : 105,
+      "snippet_image_url" : "http://s3-media3.fl.yelpcdn.com/photo/U646hfadG48fxl547hPxbg/ms.jpg",
+      "snippet_text" : "Sleek setting, great music, amazing cocktails.\n\nDate of Visit: 2/7/15\n\nFound myself in Boulder looking for a fun craft cocktail joint, and gave Bitter Bar a...",
+      "url" : "http://www.yelp.com/biz/the-bitter-bar-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA"
+    }, {
+      "categories" : [ [ "Pubs", "pubs" ], [ "Burgers", "burgers" ], [ "Breweries", "breweries" ] ],
+      "display_phone" : "+1-303-543-0886",
+      "id" : "southern-sun-pub-and-brewery-boulder",
+      "image_url" : "https://s3-media4.fl.yelpcdn.com/bphoto/i4FqYYYFrYOp-QWEcbjAQA/ms.jpg",
+      "is_claimed" : true,
+      "is_closed" : false,
+      "location" : {
+        "address" : [ "627 S Broadway St" ],
+        "city" : "Boulder",
+        "coordinate" : {
+          "latitude" : 39.984320087832,
+          "longitude" : -105.249369885828
+        },
+        "country_code" : "US",
+        "display_address" : [ "627 S Broadway St", "Boulder, CO 80305" ],
+        "geo_accuracy" : 9.5,
+        "postal_code" : "80305",
+        "state_code" : "CO"
+      },
+      "menu_date_updated" : 1441912411,
+      "menu_provider" : "single_platform",
+      "mobile_url" : "http://m.yelp.com/biz/southern-sun-pub-and-brewery-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA",
+      "name" : "Southern Sun Pub & Brewery",
+      "phone" : "3035430886",
+      "rating" : 4.0,
+      "rating_img_url" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+      "rating_img_url_large" : "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+      "rating_img_url_small" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+      "review_count" : 282,
+      "snippet_image_url" : "http://s3-media4.fl.yelpcdn.com/photo/tDFwMNQKFZle080J1W9Wiw/ms.jpg",
+      "snippet_text" : "This is a staple Boulder favorite and it's easy to see why- the ambience is relaxing, the staff are welcoming, the food is delicious and the beer is ON...",
+      "url" : "http://www.yelp.com/biz/southern-sun-pub-and-brewery-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA"
+    }, {
+      "categories" : [ [ "Bars", "bars" ] ],
+      "display_phone" : "+1-303-544-2000",
+      "id" : "sip-boulder-2",
+      "image_url" : "https://s3-media3.fl.yelpcdn.com/bphoto/hR2Pk-Q2hcvDkIKOQlx6nw/ms.jpg",
+      "is_claimed" : true,
+      "is_closed" : false,
+      "location" : {
+        "address" : [ "2810 E College Ave", "Ste 3" ],
+        "city" : "Boulder",
+        "coordinate" : {
+          "latitude" : 40.0069023,
+          "longitude" : -105.2579882
+        },
+        "country_code" : "US",
+        "display_address" : [ "2810 E College Ave", "Ste 3", "Boulder, CO 80303" ],
+        "geo_accuracy" : 9.5,
+        "postal_code" : "80303",
+        "state_code" : "CO"
+      },
+      "mobile_url" : "http://m.yelp.com/biz/sip-boulder-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA",
+      "name" : "SiP",
+      "phone" : "3035442000",
+      "rating" : 4.5,
+      "rating_img_url" : "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+      "rating_img_url_large" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+      "rating_img_url_small" : "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+      "review_count" : 19,
+      "snippet_image_url" : "http://s3-media4.fl.yelpcdn.com/photo/vunz43R2b12gVCSJ9MZuWg/ms.jpg",
+      "snippet_text" : "I love this place. The owners are friendly, the wine and beer are choice, and the whole crowd is easygoing and game to chat. I wish it were a bit bigger,...",
+      "url" : "http://www.yelp.com/biz/sip-boulder-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA"
+    }, {
+      "categories" : [ [ "Breweries", "breweries" ], [ "Sports Bars", "sportsbars" ], [ "Pizza", "pizza" ] ],
+      "display_phone" : "+1-303-786-9270",
+      "id" : "twisted-pine-brewing-company-boulder",
+      "image_url" : "https://s3-media1.fl.yelpcdn.com/bphoto/RDPxpNzPJeVZrgbjN5_9vQ/ms.jpg",
+      "is_claimed" : true,
+      "is_closed" : false,
+      "location" : {
+        "address" : [ "3201 Walnut St" ],
+        "city" : "Boulder",
+        "coordinate" : {
+          "latitude" : 40.0202654,
+          "longitude" : -105.2511983
+        },
+        "country_code" : "US",
+        "display_address" : [ "3201 Walnut St", "Boulder, CO 80301" ],
+        "geo_accuracy" : 8.0,
+        "postal_code" : "80301",
+        "state_code" : "CO"
+      },
+      "mobile_url" : "http://m.yelp.com/biz/twisted-pine-brewing-company-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA",
+      "name" : "Twisted Pine Brewing Company",
+      "phone" : "3037869270",
+      "rating" : 4.0,
+      "rating_img_url" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+      "rating_img_url_large" : "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+      "rating_img_url_small" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+      "review_count" : 137,
+      "snippet_image_url" : "http://s3-media3.fl.yelpcdn.com/photo/ld588o9LpB35WDtiqb8HQg/ms.jpg",
+      "snippet_text" : "Today was my second time visiting this brewery and I was just as satisfied this visit as I was the last. \nThe first time I came here was post hike in the...",
+      "url" : "http://www.yelp.com/biz/twisted-pine-brewing-company-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA"
+    }, {
+      "categories" : [ [ "Breweries", "breweries" ], [ "Pubs", "pubs" ] ],
+      "display_phone" : "+1-303-396-0384",
+      "id" : "j-wells-brewery-boulder",
+      "image_url" : "https://s3-media4.fl.yelpcdn.com/bphoto/f5TFfK68F6pn2PM4dRZdww/ms.jpg",
+      "is_claimed" : true,
+      "is_closed" : false,
+      "location" : {
+        "address" : [ "2516 49th St", "Ste 5" ],
+        "city" : "Boulder",
+        "coordinate" : {
+          "latitude" : 40.0237742,
+          "longitude" : -105.2376878
+        },
+        "country_code" : "US",
+        "display_address" : [ "2516 49th St", "Ste 5", "Boulder, CO 80301" ],
+        "geo_accuracy" : 9.5,
+        "postal_code" : "80301",
+        "state_code" : "CO"
+      },
+      "mobile_url" : "http://m.yelp.com/biz/j-wells-brewery-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA",
+      "name" : "J Wells Brewery",
+      "phone" : "3033960384",
+      "rating" : 4.5,
+      "rating_img_url" : "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+      "rating_img_url_large" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+      "rating_img_url_small" : "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+      "review_count" : 41,
+      "snippet_image_url" : "http://s3-media4.fl.yelpcdn.com/photo/vfA7EjgoM7R_cGwv-U2m4A/ms.jpg",
+      "snippet_text" : "+  Super delicious beer!\n+  Free Dart games!\n+  Reasonable prices!\n+  Tasters are cheap!\n+  Awesome tap room (it looks kinda like a storage unit)\n+...",
+      "url" : "http://www.yelp.com/biz/j-wells-brewery-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA"
+    }, {
+      "categories" : [ [ "Breweries", "breweries" ], [ "Bars", "bars" ] ],
+      "display_phone" : "+1-303-449-2911",
+      "id" : "upslope-brewing-company-boulder",
+      "image_url" : "https://s3-media1.fl.yelpcdn.com/bphoto/imI7cpGNtKY2qXoQQ6BBCA/ms.jpg",
+      "is_claimed" : true,
+      "is_closed" : false,
+      "location" : {
+        "address" : [ "1501 Lee Hill Rd", "Ste 20" ],
+        "city" : "Boulder",
+        "coordinate" : {
+          "latitude" : 40.06262,
+          "longitude" : -105.27876
+        },
+        "country_code" : "US",
+        "display_address" : [ "1501 Lee Hill Rd", "Ste 20", "Boulder, CO 80304" ],
+        "geo_accuracy" : 8.0,
+        "postal_code" : "80304",
+        "state_code" : "CO"
+      },
+      "mobile_url" : "http://m.yelp.com/biz/upslope-brewing-company-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA",
+      "name" : "Upslope Brewing Company",
+      "phone" : "3034492911",
+      "rating" : 4.0,
+      "rating_img_url" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+      "rating_img_url_large" : "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+      "rating_img_url_small" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+      "review_count" : 63,
+      "snippet_image_url" : "http://s3-media4.fl.yelpcdn.com/photo/5ih1Zzh_ccriE3KpaZfz_w/ms.jpg",
+      "snippet_text" : "I've been a few times now and will be going back over and over again, I'm sure.  Each time I've went the staff is fast, friendly, and knowledgeable.  Great...",
+      "url" : "http://www.yelp.com/biz/upslope-brewing-company-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA"
+    }, {
+      "categories" : [ [ "Wine Bars", "wine_bars" ], [ "French", "french" ], [ "Italian", "italian" ] ],
+      "display_phone" : "+1-303-786-8585",
+      "id" : "pmg-boulder-3",
+      "image_url" : "https://s3-media4.fl.yelpcdn.com/bphoto/kffrZYbaJ3yi5-TDmeiHUw/ms.jpg",
+      "is_claimed" : true,
+      "is_closed" : false,
+      "location" : {
+        "address" : [ "2018 10th St" ],
+        "city" : "Boulder",
+        "coordinate" : {
+          "latitude" : 40.0178201,
+          "longitude" : -105.2824649
+        },
+        "country_code" : "US",
+        "display_address" : [ "2018 10th St", "Boulder, CO 80302" ],
+        "geo_accuracy" : 9.5,
+        "postal_code" : "80302",
+        "state_code" : "CO"
+      },
+      "menu_date_updated" : 1442227962,
+      "menu_provider" : "single_platform",
+      "mobile_url" : "http://m.yelp.com/biz/pmg-boulder-3?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA",
+      "name" : "PMG",
+      "phone" : "3037868585",
+      "rating" : 4.5,
+      "rating_img_url" : "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+      "rating_img_url_large" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+      "rating_img_url_small" : "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+      "review_count" : 39,
+      "snippet_image_url" : "http://s3-media4.fl.yelpcdn.com/photo/b4_GpEd3W9kfMATuD63lGw/ms.jpg",
+      "snippet_text" : "This place is just so good in so many ways. \n\nService: \n\nQuick and thoughtful service from start to finish. Very knowledgeable staff and awesome wine list....",
+      "url" : "http://www.yelp.com/biz/pmg-boulder-3?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA"
+    }, {
+      "categories" : [ [ "Bars", "bars" ], [ "American (Traditional)", "tradamerican" ] ],
+      "display_phone" : "+1-303-415-1300",
+      "id" : "attic-bar-and-bistro-boulder",
+      "image_url" : "https://s3-media4.fl.yelpcdn.com/bphoto/p1Vd4rydwD0HoRN4E0qMwA/ms.jpg",
+      "is_claimed" : true,
+      "is_closed" : false,
+      "location" : {
+        "address" : [ "949 Walnut St" ],
+        "city" : "Boulder",
+        "coordinate" : {
+          "latitude" : 40.0165977478027,
+          "longitude" : -105.282455444336
+        },
+        "country_code" : "US",
+        "display_address" : [ "949 Walnut St", "Boulder, CO 80302" ],
+        "geo_accuracy" : 8.0,
+        "postal_code" : "80302",
+        "state_code" : "CO"
+      },
+      "menu_date_updated" : 1456782779,
+      "menu_provider" : "single_platform",
+      "mobile_url" : "http://m.yelp.com/biz/attic-bar-and-bistro-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA",
+      "name" : "Attic Bar & Bistro",
+      "phone" : "3034151300",
+      "rating" : 4.0,
+      "rating_img_url" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+      "rating_img_url_large" : "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+      "rating_img_url_small" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+      "review_count" : 54,
+      "snippet_image_url" : "http://s3-media2.fl.yelpcdn.com/photo/0kI_CsWZz9NJTn-t-Wpe3Q/ms.jpg",
+      "snippet_text" : "As my friend from WI will tell you, the Attic is a Wisconsonian bar. I may have made that word up, but whatever. The owners are from Wisconsin. \"So,\" she...",
+      "url" : "http://www.yelp.com/biz/attic-bar-and-bistro-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA"
+    }, {
+      "categories" : [ [ "Pubs", "pubs" ], [ "Breweries", "breweries" ] ],
+      "display_phone" : "+1-303-444-8448",
+      "id" : "boulder-beer-boulder",
+      "image_url" : "https://s3-media1.fl.yelpcdn.com/bphoto/UPJxM8haaxdRqxABHSvkAw/ms.jpg",
+      "is_claimed" : true,
+      "is_closed" : false,
+      "location" : {
+        "address" : [ "2880 Wilderness Pl" ],
+        "city" : "Boulder",
+        "coordinate" : {
+          "latitude" : 40.0266799926758,
+          "longitude" : -105.247985839844
+        },
+        "country_code" : "US",
+        "display_address" : [ "2880 Wilderness Pl", "Boulder, CO 80301" ],
+        "geo_accuracy" : 8.0,
+        "postal_code" : "80301",
+        "state_code" : "CO"
+      },
+      "menu_date_updated" : 1447060876,
+      "menu_provider" : "single_platform",
+      "mobile_url" : "http://m.yelp.com/biz/boulder-beer-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA",
+      "name" : "Boulder Beer",
+      "phone" : "3034448448",
+      "rating" : 4.0,
+      "rating_img_url" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+      "rating_img_url_large" : "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+      "rating_img_url_small" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+      "review_count" : 122,
+      "snippet_image_url" : "http://s3-media2.fl.yelpcdn.com/photo/yn6GAR_Q736GsezjO2N8GQ/ms.jpg",
+      "snippet_text" : "Happy hour on the patio with friends on a beautiful fall afternoon - spectacular!\n\nFriendly staff, amazing selection of hand-crafted last cal brews and...",
+      "url" : "http://www.yelp.com/biz/boulder-beer-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA"
+    }, {
+      "categories" : [ [ "Bars", "bars" ], [ "Breweries", "breweries" ] ],
+      "display_phone" : "+1-303-396-1898",
+      "id" : "upslope-brewing-company-flatiron-park-tap-room-boulder-2",
+      "image_url" : "https://s3-media3.fl.yelpcdn.com/bphoto/pHX_4SgiWVetCT9xwxLWuw/ms.jpg",
+      "is_claimed" : true,
+      "is_closed" : false,
+      "location" : {
+        "address" : [ "1898 S Flatiron Ct" ],
+        "city" : "Boulder",
+        "coordinate" : {
+          "latitude" : 40.0201759338379,
+          "longitude" : -105.217971801758
+        },
+        "country_code" : "US",
+        "display_address" : [ "1898 S Flatiron Ct", "Boulder, CO 80301" ],
+        "geo_accuracy" : 8.0,
+        "postal_code" : "80301",
+        "state_code" : "CO"
+      },
+      "mobile_url" : "http://m.yelp.com/biz/upslope-brewing-company-flatiron-park-tap-room-boulder-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA",
+      "name" : "Upslope Brewing Company Flatiron Park Tap Room",
+      "phone" : "3033961898",
+      "rating" : 4.0,
+      "rating_img_url" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+      "rating_img_url_large" : "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+      "rating_img_url_small" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+      "review_count" : 27,
+      "snippet_image_url" : "http://s3-media4.fl.yelpcdn.com/photo/Ba8W5LBTNdRo5ulVl89XAA/ms.jpg",
+      "snippet_text" : "The beer is amazing, the empanadas were spot on, the bartender was a breath of fresh air, and even our dogs enjoy the nice cold brew water bowls ;)\n\nThe...",
+      "url" : "http://www.yelp.com/biz/upslope-brewing-company-flatiron-park-tap-room-boulder-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA"
+    }, {
+      "categories" : [ [ "Bars", "bars" ], [ "Music Venues", "musicvenues" ], [ "Beer Gardens", "beergardens" ] ],
+      "display_phone" : "+1-720-328-8328",
+      "id" : "bohemian-biergarten-boulder",
+      "image_url" : "https://s3-media3.fl.yelpcdn.com/bphoto/XqAsD3xis8U1wXf4RsXjgA/ms.jpg",
+      "is_claimed" : true,
+      "is_closed" : false,
+      "location" : {
+        "address" : [ "2017 13th St" ],
+        "city" : "Boulder",
+        "coordinate" : {
+          "latitude" : 40.0187301635742,
+          "longitude" : -105.279266357422
+        },
+        "country_code" : "US",
+        "display_address" : [ "2017 13th St", "Boulder, CO 80302" ],
+        "geo_accuracy" : 8.0,
+        "postal_code" : "80302",
+        "state_code" : "CO"
+      },
+      "menu_date_updated" : 1442115785,
+      "menu_provider" : "single_platform",
+      "mobile_url" : "http://m.yelp.com/biz/bohemian-biergarten-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA",
+      "name" : "Bohemian Biergarten",
+      "phone" : "7203288328",
+      "rating" : 3.5,
+      "rating_img_url" : "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png",
+      "rating_img_url_large" : "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png",
+      "rating_img_url_small" : "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png",
+      "review_count" : 121,
+      "snippet_image_url" : "http://s3-media3.fl.yelpcdn.com/photo/5I7FAidBn-FYWQllEU8DLg/ms.jpg",
+      "snippet_text" : "So we went here a few weeks ago, me being my hubby's DD,while he got intoxicated..lol  It was his boy's night, so I was just the driver.  My hubby's \"man...",
+      "url" : "http://www.yelp.com/biz/bohemian-biergarten-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA"
+    }, {
+      "categories" : [ [ "Bars", "bars" ], [ "Dance Clubs", "danceclubs" ] ],
+      "display_phone" : "+1-720-508-4916",
+      "id" : "press-play-boulder",
+      "image_url" : "https://s3-media3.fl.yelpcdn.com/bphoto/sWcYcIEkZr0Ih8AFGHyEFQ/ms.jpg",
+      "is_claimed" : true,
+      "is_closed" : false,
+      "location" : {
+        "address" : [ "1005 Pearl St" ],
+        "city" : "Boulder",
+        "coordinate" : {
+          "latitude" : 40.017426609993,
+          "longitude" : -105.28240352869
+        },
+        "country_code" : "US",
+        "display_address" : [ "1005 Pearl St", "Boulder, CO 80302" ],
+        "geo_accuracy" : 8.0,
+        "postal_code" : "80302",
+        "state_code" : "CO"
+      },
+      "mobile_url" : "http://m.yelp.com/biz/press-play-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA",
+      "name" : "Press Play",
+      "phone" : "7205084916",
+      "rating" : 3.5,
+      "rating_img_url" : "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png",
+      "rating_img_url_large" : "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png",
+      "rating_img_url_small" : "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png",
+      "review_count" : 34,
+      "snippet_image_url" : "http://s3-media4.fl.yelpcdn.com/photo/bRmjvTLZNMvIIno-3nCS_A/ms.jpg",
+      "snippet_text" : "Neat place, had some very cool classic arcade games. I spent about a half hour just on the Galaga they had! Unfortunately someone must've spilled their...",
+      "url" : "http://www.yelp.com/biz/press-play-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA"
+    }, {
+      "categories" : [ [ "Breweries", "breweries" ], [ "Barbeque", "bbq" ], [ "American (Traditional)", "tradamerican" ] ],
+      "display_phone" : "+1-303-440-4324",
+      "id" : "avery-brewing-boulder-2",
+      "image_url" : "https://s3-media4.fl.yelpcdn.com/bphoto/MkVcVHCwoyBjRpMMH-i6iQ/ms.jpg",
+      "is_claimed" : true,
+      "is_closed" : false,
+      "location" : {
+        "address" : [ "4910 Nautilus Ct N" ],
+        "city" : "Boulder",
+        "coordinate" : {
+          "latitude" : 40.06253,
+          "longitude" : -105.20495
+        },
+        "country_code" : "US",
+        "display_address" : [ "4910 Nautilus Ct N", "Boulder, CO 80301" ],
+        "geo_accuracy" : 8.0,
+        "postal_code" : "80301",
+        "state_code" : "CO"
+      },
+      "mobile_url" : "http://m.yelp.com/biz/avery-brewing-boulder-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA",
+      "name" : "Avery Brewing",
+      "phone" : "3034404324",
+      "rating" : 4.5,
+      "rating_img_url" : "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+      "rating_img_url_large" : "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+      "rating_img_url_small" : "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+      "review_count" : 188,
+      "snippet_image_url" : "http://s3-media2.fl.yelpcdn.com/photo/nacAsv4hN_yMPswV05OiBg/ms.jpg",
+      "snippet_text" : "I ate at Avery this weekend when it was 70 degrees out in February and it was fantastic. We sat outside on the patio with our dog- which alot of people did....",
+      "url" : "http://www.yelp.com/biz/avery-brewing-boulder-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA"
+    }, {
+      "categories" : [ [ "Pizza", "pizza" ], [ "Sports Bars", "sportsbars" ] ],
+      "display_phone" : "+1-303-449-4285",
+      "id" : "backcountry-pizza-and-tap-house-boulder",
+      "image_url" : "https://s3-media2.fl.yelpcdn.com/bphoto/Mx-3NX8lMIDXpYpe3vqRKw/ms.jpg",
+      "is_claimed" : true,
+      "is_closed" : false,
+      "location" : {
+        "address" : [ "2319 Arapahoe Ave" ],
+        "city" : "Boulder",
+        "coordinate" : {
+          "latitude" : 40.014866,
+          "longitude" : -105.26403
+        },
+        "country_code" : "US",
+        "display_address" : [ "2319 Arapahoe Ave", "Boulder, CO 80302" ],
+        "geo_accuracy" : 8.0,
+        "postal_code" : "80302",
+        "state_code" : "CO"
+      },
+      "mobile_url" : "http://m.yelp.com/biz/backcountry-pizza-and-tap-house-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA",
+      "name" : "Backcountry Pizza and Tap House",
+      "phone" : "3034494285",
+      "rating" : 3.5,
+      "rating_img_url" : "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png",
+      "rating_img_url_large" : "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png",
+      "rating_img_url_small" : "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png",
+      "review_count" : 138,
+      "snippet_image_url" : "http://s3-media1.fl.yelpcdn.com/photo/vepNYC780iZzIQXV0wEaMQ/ms.jpg",
+      "snippet_text" : "I went to a tailgate party here.  The beer selection is everything a beer drinker could want.  My server was Cody and he did an excellent job - kid knows...",
+      "url" : "http://www.yelp.com/biz/backcountry-pizza-and-tap-house-boulder?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=cxGENEtsTmPYEJLMbPC-YA"
+    } ],
+    "region" : {
+      "center" : {
+        "latitude" : 40.023588093916004,
+        "longitude" : -105.24455940000001
+      },
+      "span" : {
+        "latitude_delta" : 0.0863896133847959,
+        "longitude_delta" : 0.08708788000001277
+      }
+    },
+    "total" : 1703
+  }
+}

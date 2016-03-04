@@ -26,7 +26,7 @@ Feature: Usage
 ```
 Feature: ChatChannel
 ```
-
+Feature: Chat Channel
  Scenario: User is joing a chatroom
     Given User is trying to join in the chatroom
     When he press join button
@@ -45,17 +45,36 @@ Feature: ChatChannel
 
 ```
 
-## Feature: My App's Feature 3
+## Feature: User Status
 
 ``` gherkin
-TODO:
+Feature: User Status
+ Scenario: Bader is in bar.
+   Given Bader has logged in into the system
+   And he is on the map 
+   When he selects a bar 
+   Then Bader's status should be changed to in bar
+   
+ Scenario: Bader is inactive.
+   Given Bader has logged in into the system
+   And he is on the map 
+   When he exits a map 
+   Then Bader's status should be changed to inactive
+ 
+ Scenario: Bader is active.
+   Given Bader has logged in into the system
+   And he is on the map 
+   When he browse bar shops
+   Then Bader's status should be changed to active
+
+
 
 ```
 
 ## Feature: Map
 
 ``` gherkin
-Callan Fisher
+Feature: Map (Callan Fisher)
   Senario: Selecting Bar 
     When I click the Bar Map tab I want to see all the bars in the area
     Then I will be able to select the bar I want

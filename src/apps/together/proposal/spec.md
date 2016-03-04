@@ -8,30 +8,30 @@ layout: layout.hbs
 
 Our app uses the following structure for the database backend:
 
-Groups
-          ID
-          name
-          size
-          date
-          listOfChoices: [ChoiceName:[ userIDs,timeFrame ]]  
-             listOfUsers: [UserName:[ ChoiceName ,timeFrame ]]  
-Users
+*Groups:
+          *ID
+          *name
+          *size
+          *date
+          *listOfChoices: [ChoiceName:[ userIDs,timeFrame ]]  
+             *listOfUsers: [UserName:[ ChoiceName ,timeFrame ]]  
+*Users:
 
-  ID
-  Group
-  isGroupOwner
-           Selected choices
-Choices (Yelp Dataset)
-            choice name 
-            choice location [longitude, latitude]
-            isOpen
-            Categories  (Irish, Pub, etc.)
-Messages
-            ID
-            content 
-            from 
-            to
-            time
+  *ID
+  *Group
+  *isGroupOwner
+           *Selected choices
+*Choices (Yelp Dataset):
+            *choice name 
+            *choice location [longitude, latitude]
+            *isOpen
+            *Categories  (Irish, Pub, etc.)
+*Messages:
+            *ID
+            *content 
+            *from 
+            *to
+            *time
 
 
 
