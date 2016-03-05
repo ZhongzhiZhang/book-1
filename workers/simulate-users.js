@@ -1,6 +1,8 @@
 var _ = require('lodash')
 var random_name = require('node-random-name');
 var Firebase = require('firebase');
+
+
 // Boulder
 var city_location = {
     lat: 40.015,
@@ -85,7 +87,7 @@ function movement() {
                 lon: lon,
                 duration: user.duration,
                 name: user.name,
-                isGroupOwner: provider.isGroupOwner
+                isGroupOwner: user.isGroupOwner
             });
 
         });
