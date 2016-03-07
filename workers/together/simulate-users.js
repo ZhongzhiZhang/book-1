@@ -18,7 +18,19 @@ function simulate() {
     var lat = city_location.lat + radius * (Math.random() - 0.5) * 2;
     var lon = city_location.lon + radius * (Math.random() - 0.5) * 2;
     var isGroupOwner = Math.random() < 0.5 ? true : false;
-   
+    
+    // generate a random group size between 1 and 10
+    // random date between start and end dates
+    var groupName = random_name();
+    var size =  Math.floor((Math.random() * 10) + 1);
+    var start = new Date(2012, 0, 1);
+    var end = new Date();
+    var date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+    
+    // random id for group 
+    var randomKey = Math.floor(Math.random()*90000) + 10000;
+    
+    
 
     var person = {
         name: name,
@@ -27,7 +39,16 @@ function simulate() {
         lon: lon,
         isGroupOwner: isGroupOwner
     };
-
+    
+        var group = {
+        name: groupName,
+        size: size,
+        date: date,
+ 
+    };
+    
+ 
+    
     // simulate this person entering
     enter(person);
 
@@ -38,6 +59,17 @@ function simulate() {
         leave(person);
     }, duration * 1000);
 
+     // simulate this person joinning a given group
+        var ref = new Firebase('https://drinktogether.firebaseio.com/groups/id');
+    ref.once('value', function(snapshot){
+    	var idlist = snapshot.val()
+    	var id = Object.keys(idlist)
+    	
+    	joinGroup(person, id);
+    })
+    
+    
+    
 }
 
 function enter(person) {
@@ -50,6 +82,35 @@ function enter(person) {
         lon: person.lon,
         name: person.name,
         isGroupOwner: person.isGroupOwner
+    });
+}
+
+function joinGroup(person, groupID) {
+    console.log('join', person.name);
+    // Put this person in the Firebase
+    var ref = new Firebase('https://drinktogether.firebaseio.com/groups/' + groupID + '/listOfUsers');
+     
+     // simulate person choices of bars
+        var ref = new Firebase('https://drinktogether.firebaseio.com/yelp/businesses');
+        var barList = [];
+    ref.once('value', function(snapshot){
+    	var bars = snapshot.val()
+        
+        for (var barNumber in bars){
+          var bar = bars[barNumber]
+          var barName = bar.name
+          barList.push(barName)
+          
+        }
+            	
+    	joinGroup(person, id);
+    })
+    
+    var randBar = barList[Math.floor(Math.random() * barList.length)];
+
+    
+    ref.child(persone.name).set({
+       randBar : { EndTime : date , StartTime: date }
     });
 }
 
