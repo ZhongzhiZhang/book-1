@@ -7,41 +7,88 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
-    <title>Drink Together</title>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+      <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.0.0/lodash.min.js"></script>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvjx2rX763ezVHsvdemCY3Fc3vBtsEygo&signed_in=true"></script>
+    <script>
+// In the following example, markers appear when the user clicks on the map.
+// Each marker is labeled with a single alphabetical character.
+var labels = '12345';
+var labelIndex = 0;
+
+function initialize() {
+  var boulder =  {lat:40.018420740127205 ,lng: -105.27825951576233};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 12,
+    center: boulder
+  });
+
+  // This event listener calls addMarker() when the map is clicked.
+  google.maps.event.addListener(map, 'click', function(event) {
+    addMarker(event.latLng, map);
+  });
+
+  // Add a marker at the center of the map.
+  addMarker(boulder, map);
+}
+
+// Adds a marker to the map.
+function addMarker(location, map) {
+  // Add the marker at the clicked location, and add the next-available label
+  // from the array of alphabetical characters.
+  var marker = new google.maps.Marker({
+    position: location,
+    label: labels[labelIndex++ % labels.length],
+    map: map
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+    <title>Bar Crawl</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 75%;
+        width: 75%;
+      }
+    </style>
   </head>
   <body>
-    <nav class="black">
-          <div class="nav-wrapper">
-              <a href="#" class="brand-logo center">
-                Plan a crawl
-              </a>
-              <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-              <ul id="nav-mobile" class="left hide-on-med-and-down">
-                  <li><a href="index.html">Chat</a></li>
-                  <li><a href="map.html">Map</a></li>
-              </ul>
-              <ul class="side-nav" id="mobile-demo">
-                  <li><a href="index.html">Chat</a></li>
-                  <li><a href="map.html">Map</a></li>
-              </ul>
-          </div>
+  <nav class="black">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">
+              Bar Crawl Planning
+            </a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="index.html">Chat</a></li>
+                <li><a href="map.html">Map</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="index.html">Chat</a></li>
+                <li><a href="map.html">Map</a></li>
+            </ul>
+        </div>
     </nav>
     <br>
-    <div class="container">
-      
-    </div>
-    <script>
-      $('.button-collapse').sideNav({
-        menuWidth: 300, // Default is 240
-        edge: 'left', // Choose the horizontal origin
-        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-      }
-    );
-    </script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-    <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.0.0/lodash.min.js"></script>   
+     <div class="container" id="map"></div>
+  <script>
+    $('.button-collapse').sideNav({
+      menuWidth: 300, // Default is 240
+      edge: 'left', // Choose the horizontal origin
+      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    }
+  );
+  </script>   
   </body>
 </html>

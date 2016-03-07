@@ -1,3 +1,4 @@
+var Firebase = require("firebase");
 // a single 'data' object that holds the data of your entire app, with initial values
 var data = {
   user: null
@@ -10,28 +11,28 @@ var actions = {}
 // the main render() function. call this function whenever the app's UI
 // needs to to re-rendered
 // 'data' and 'actions' are injected into the app
-function render(){
-  var user = getURLParameter('user');
-  if (user !== "" && data.user === null) {
-    root.child('users').child(user).once('value', function(snapshot) {
-      data.user = snapshot.val();
-      ReactDOM.render(
-        <MyComponents.App
-            data={data}
-            actions={actions}/>,
-        $('#app-container').get(0)
-      );
-    });
-  }
-  else {
-    ReactDOM.render(
-      <MyComponents.App
-          data={data}
-          actions={actions}/>,
-      $('#app-container').get(0)
-    );
-  }
-}
+// function render(){
+//   var user = getURLParameter('user');
+//   if (user !== "" && data.user === null) {
+//     root.child('users').child(user).once('value', function(snapshot) {
+//       data.user = snapshot.val();
+//       ReactDOM.render(
+//         <MyComponents.App
+//             data={data}
+//             actions={actions}/>,
+//         $('#app-container').get(0)
+//       );
+//     });
+//   }
+//   else {
+//     ReactDOM.render(
+//       <MyComponents.App
+//           data={data}
+//           actions={actions}/>,
+//       $('#app-container').get(0)
+//     );
+//   }
+// }
 
 actions.login = function(){
 
