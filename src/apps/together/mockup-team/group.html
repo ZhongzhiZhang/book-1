@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+      <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
+
+      <!-- Firechat -->
+      <link rel='stylesheet' href='https://cdn.firebase.com/libs/firechat/2.0.1/firechat.min.css' />
+      <script src='https://cdn.firebase.com/libs/firechat/2.0.1/firechat.min.js'></script>
+
+      <title>Bar Crawl</title>
+      </head>
+      <body>
+      <nav class="black">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center">
+                  Bar Crawl Planning
+                </a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a href="index.html">Chat</a></li>
+                    <li><a href="map.html">Map</a></li>
+                    <li><a href="group.html">Group</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="index.html">Chat</a></li>
+                    <li><a href="map.html">Map</a></li>
+                    <li><a href="group.html">Group</a></li>
+                </ul>
+            </div>
+        </nav>
+        <br>
+        <script>
+        $('.button-collapse').sideNav({
+          menuWidth: 300, // Default is 240
+          edge: 'left', // Choose the horizontal origin
+          closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        }
+      );
+      </script>
+
+
+    </body>
+
