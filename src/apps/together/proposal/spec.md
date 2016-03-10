@@ -40,7 +40,6 @@ Our app uses the following structure for the database backend:
 The major actions of our app are:
 * Join a group
 * Choose a bar
-* Be a group owner 
 * Filter a bar 
 * Rate a bar
 
