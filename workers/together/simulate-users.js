@@ -65,7 +65,7 @@ function simulate() {
     	var idlist = snapshot.val()
     	var id = Object.keys(idlist)
     	
-    	joinGroup(person, id);
+    	joinGroup(person, id,group);
     })
     
     
@@ -85,7 +85,7 @@ function enter(person) {
     });
 }
 
-function joinGroup(person, groupID) {
+function joinGroup(person, groupID,group) {
     console.log('join', person.name);
     // Put this person in the Firebase
     var ref = new Firebase('https://drinktogether.firebaseio.com/groups/' + groupID + '/listOfUsers');
@@ -103,14 +103,14 @@ function joinGroup(person, groupID) {
           
         }
             	
-    	joinGroup(person, id);
+    	joinGroup(person,groupID,group);
     })
     
     var randBar = barList[Math.floor(Math.random() * barList.length)];
 
     
-    ref.child(persone.name).set({
-       randBar : { EndTime : date , StartTime: date }
+    ref.child(person.name).set({
+       randBar : { EndTime : group.date , StartTime: group.date }
     });
 }
 
