@@ -50,7 +50,7 @@
       );
 
         var fire = new Firebase('https://drinktogether.firebaseio.com/')
-        fire.child('bio').once('value', function(snapshot){
+        fire.child('bio').on('value', function(snapshot){
         var data = snapshot.val();
 
         ReactDOM.render(

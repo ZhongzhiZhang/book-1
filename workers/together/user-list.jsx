@@ -1,4 +1,4 @@
-
+ 
 MyComponents.User = React.createClass({
  render: function() {
   var status = this.props.user.status;
