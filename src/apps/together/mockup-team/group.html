@@ -8,43 +8,54 @@
       <!--Import materialize.css-->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
 
-      <!-- cirlce stylesheet -->
+      <!-- circle stylesheet -->
       <link rel="stylesheet" href="css/style.css">
 
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
       <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
-
-      <!-- Firechat -->
-      <link rel='stylesheet' href='https://cdn.firebase.com/libs/firechat/2.0.1/firechat.min.css' />
-      <script src='https://cdn.firebase.com/libs/firechat/2.0.1/firechat.min.js'></script>
-
-      <title>Bar Crawl</title>
+      <!-- React -->
+      <script src="lib/react.js"></script>
+      <script src="lib/react-dom.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+      <title>Drink Together</title>
       </head>
       <body>
+      <div id="app-container">
+        <div id="navbar"></div>
+      </div>
+      <script>
+        // MyComponents is a global object where each property is a reference to a component class
+        MyComponents = {}
+      </script>
+
+      <!-- import each component class in components/ -->
+      <!-- The order is important. Dependencies must be loaded first -->
+      <!-- // <script type="text/babel" src="user.jsx"></script> -->
         <br>
-        <script>
+        <script type="text/babel">
         $('.button-collapse').sideNav({
           menuWidth: 300, // Default is 240
           edge: 'left', // Choose the horizontal origin
           closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
         }
       );
-
-        var fire = new Firebase('https://drinktogether.firebaseio.com/')
-        fire.child('bio').on('value', function(snapshot){
-        var data = snapshot.val();
-
-        ReactDOM.render(
-          <MyComponents.NavBar/>,
-          $('#navbar').get(0)
-        );
-      </script>
-
+        var teamBar = new Firebase('https://drinktogether.firebaseio.com/')
+        teamBar.on('value', function(snapshot){
+          var barData = snapshot.val();
+          ReactDOM.render(
+              <MyComponents.NavBar/>,
+              $('#navbar').get(0)
+          );
+        });
+        </script>
 
 
-
+        <!-- Connect the app and data -->
       <script type="text/babel" src="groupData.jsx"></script>
+      <script type="text/babel" src="components/navbar.js"></script>
+      <!-- <script type="text/babel" src="data.jsx"></script> -->
+
 
 <!--       <div class="badgeBlue">Downer</div> -->
 

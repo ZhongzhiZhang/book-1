@@ -11,12 +11,13 @@ MyComponents.NavBar = React.createClass({
                     <li><a href="index.html">Chat</a></li>
                     <li><a href="map.html">Map</a></li>
                     <li><a href="group.html">Group</a></li>
-                    <li><a href="login.html"></a></li>
+                    <li><a href="login.html">Login</a></li>
                 </ul>
                 <ul className="side-nav" id="mobile-demo">
                     <li><a href="index.html">Chat</a></li>
                     <li><a href="map.html">Map</a></li>
                     <li><a href="group.html">Group</a></li>
+                    <li><a href="login.html">Login</a></li>
                 </ul>
             </div>
         </nav>
