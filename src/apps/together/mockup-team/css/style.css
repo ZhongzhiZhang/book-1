@@ -1,0 +1,10 @@
+
+.badgeBlue {
+  height: 250px;
+  width: 250px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 50%;
+  background: rgb(102, 153, 255);
+}

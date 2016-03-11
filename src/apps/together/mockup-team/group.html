@@ -7,6 +7,10 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+      <!-- cirlce stylesheet -->
+      <link rel="stylesheet" href="css/style.css">
+
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
       <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
@@ -44,8 +48,25 @@
           closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
         }
       );
+
+        var fire = new Firebase('https://drinktogether.firebaseio.com/')
+        fire.child('bio').once('value', function(snapshot){
+        var data = snapshot.val();
+
+        ReactDOM.render(
+          <MyComponents.NavBar/>,
+          $('#navbar').get(0)
+        );
       </script>
 
 
+
+
+      <script type="text/babel" src="groupData.jsx"></script>
+
+<!--       <div class="badgeBlue">Downer</div> -->
+
     </body>
+</html>
+
 
