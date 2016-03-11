@@ -1,4 +1,4 @@
-MyComponents.Skill = React.createClass({
+MyComponents.Group = React.createClass({
 
   render: function() {
     return (
@@ -8,22 +8,22 @@ MyComponents.Skill = React.createClass({
 
 });
 
-MyComponents.GroupData = React.createClass({
+MyComponents.GroupList = React.createClass({
   render: function() {
     var name = this.props.group.id.name(function(s,i){
-      return <MyComponents.GroupData bar={s} key={i}/>
+      return <MyComponents.Group bar={s} key={i}/>
     })
 
     var bars = this.props.group.id.bars(function(s,i){
-      return <MyComponents.GroupData name={s} key={i}/>
+      return <MyComponents.Group name={s} key={i}/>
     })
 
     var groupSize = this.props.group.id.size(function(s,i){
-      return <MyComponents.GroupData size={s} key={i}/>
+      return <MyComponents.Group size={s} key={i}/>
     })
 
     var date = this.props.group.id.date(function(s,i){
-      return <MyComponents.GroupData date={s} key={i}/>
+      return <MyComponents.Group date={s} key={i}/>
     })
 
     return (
