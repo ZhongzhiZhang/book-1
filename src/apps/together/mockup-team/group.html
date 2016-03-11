@@ -23,6 +23,7 @@
       <body>
       <div id="app-container">
         <div id="navbar"></div>
+        <div id="group-list"></div>
       </div>
       <script>
         // MyComponents is a global object where each property is a reference to a component class
@@ -45,6 +46,10 @@
           var barData = snapshot.val();
           ReactDOM.render(
               <MyComponents.NavBar/>,
+              $('#navbar').get(0)
+          );
+          ReactDOM.render(
+              <MyComponents.GroupList/>,
               $('#navbar').get(0)
           );
         });

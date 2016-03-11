@@ -4,7 +4,7 @@ class App extends React.Component {
       <div className="card">
       <p>
       	<MyComponents.GroupList groups={this.props.data.groups}/>
-      </p>
+	  </p>
       </div>
       );
   }
