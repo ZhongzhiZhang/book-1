@@ -1,12 +1,12 @@
 class App extends React.Component {
   render(){
-    return <div>
+    return (
       <div className="card">
-
-      <MyComponents.GroupList groups={this.props.data.groups}/>
-
-
-    </div>;
+      <p>
+      	<MyComponents.GroupList groups={this.props.data.groups}/>
+      </p>
+      </div>
+      );
   }
 }
 
