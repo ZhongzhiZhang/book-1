@@ -11,7 +11,7 @@
   "dependencies": {
     "consolidate": "^0.13.1",
     "debug": "^2.2.0",
-    "firebase": "^2.4.0",
+    "firebase": "^2.4.1",
     "geofire": "^3.2.4",
     "handlebars": "^4.0.3",
     "lodash": "^3.10.1",
@@ -27,6 +27,8 @@
     "metalsmith-watch": "^1.0.1",
     "node-random-name": "^1.0.1",
     "nunjucks": "^2.3.0",
+    "react": "^0.14.7",
+    "reactfire": "^0.6.0",
     "rsvp": "^3.2.1"
   }
 }
