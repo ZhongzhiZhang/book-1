@@ -1,44 +1,22 @@
-
-MyComponents.Group = React.createClass({
- render: function() {
-   return (
-
-        <tr>
-          <td>{this.props.group.name}</td>
-          <td>{JSON.stringify(this.props.group.size)}</td>
-          <td>{JSON.stringify(this.props.group.date)}</td>
-        </tr>
-
-
-   );
- }
-});
-
-
 MyComponents.GroupList = React.createClass({
+  mixins: [ReactFireMixin],
+  getInitialState: function() {
+    return {
+      groups: []
+    };
+  },
+  componentWillMount: function() {
+    var ref = new Firebase("https://drinktogether.firebaseio.com/groups/id");
+    this.bindAsArray(ref, "groups");
+  },
   render: function() {
-
-    var groups = this.props.groups.map(function(p,i){
-      return <MyComponents.Group group={p} key={i}/>
-    })
-
+  var groups = this.state.groups.map(function(group) {
     return (
-      <div>
-        <h3>Groups</h3>
-        <table>
-          <thead>
-            <tr>
-              <th data-field="name">Name</th>
-              <th data-field="size">Size</th>
-              <th data-field="date">Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {groups}
-          </tbody>
-        </table>
-      </div>
+      <li key={ group['.key'] }>
+        <b>{ group.name }</b> is going to { group.bars } and has {group.size} people with them
+      </li>
     );
-  }
+  });
+  return (<ul>{ groups }</ul>;)
+}
 });
-
