@@ -63,8 +63,9 @@ function simulate() {
         var ref = new Firebase('https://drinktogether.firebaseio.com/groups/id');
     ref.once('value', function(snapshot){
     	var idlist = snapshot.val()
-    	var id = Object.keys(idlist)
-    	
+    	var idpool = Object.keys(idlist)
+    	console.log('GroupID', id);
+	var id = idpool[Math.floor(Math.random() * idpool.length)];
     	joinGroup(person, id,group);
     })
     
@@ -86,32 +87,41 @@ function enter(person) {
 }
 
 function joinGroup(person, groupID,group) {
-    console.log('join', person.name);
+   // console.log('join', person.name);
     // Put this person in the Firebase
-    var ref = new Firebase('https://drinktogether.firebaseio.com/groups/' + groupID + '/listOfUsers');
-     
+    var ref = new Firebase('https://drinktogether.firebaseio.com/groups/id/' + groupID + '/listOfUsers');
+         	console.log('JOINING', 'https://drinktogether.firebaseio.com/groups/id/' + groupID + '/listOfUsers');
      // simulate person choices of bars
-        var ref = new Firebase('https://drinktogether.firebaseio.com/yelp/businesses');
+       var ref2 = new Firebase('https://drinktogether.firebaseio.com/yelp/businesses/');
+	   // console.log('Choice of Bar', barList);
         var barList = [];
-    ref.once('value', function(snapshot){
+    ref2.once('value', function(snapshot){
     	var bars = snapshot.val()
         
         for (var barNumber in bars){
           var bar = bars[barNumber]
           var barName = bar.name
-          barList.push(barName)
-          
+
+  // console.log('Choices of Bar', barName);
+          barList.push(barName);
+
         }
-            	
+
+ var randBar = barList[Math.floor(Math.random() * barList.length)];
+
+                  console.log('randBar', randBar);
+    ref.child(person.name).set({
+       		randBar: { EndTime : group.date , StartTime: group.date }
+    });
+            	ref.child(person.name).child(randBar).set({
+		 EndTime : "18:00" , StartTime: "15:00"
+	});
     	joinGroup(person,groupID,group);
     })
-    
-    var randBar = barList[Math.floor(Math.random() * barList.length)];
 
-    
-    ref.child(person.name).set({
-       randBar : { EndTime : group.date , StartTime: group.date }
-    });
+	              //console.log('BarLists', barList);    
+
+   
 }
 
 function movement() {
