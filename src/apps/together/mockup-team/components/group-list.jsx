@@ -12,11 +12,22 @@ MyComponents.GroupList = React.createClass({
   render: function() {
   var groups = this.state.groups.map(function(group) {
     return (
-      <li key={ group['.key'] }>
-        <b>{ group.name }</b> is going to { group.bars } and has {group.size} people with them
-      </li>
+      <tr key={ group['.key'] }>
+        <td>{ group.name }</td>
+        <td>{ group.bars }</td> 
+        <td>{ group.size }</td> 
+        <td>{ group.date }</td>
+      </tr>
     );
   });
-  return (<ul>{ groups }</ul>;)
+  return (<table>
+          <tr>
+            <th>Group Name</th>    
+            <th>Destination</th>   
+            <th>Size</th>  
+            <th>Date</th>
+          </tr>
+          { groups }
+        </table>)
 }
 });
