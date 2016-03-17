@@ -44,3 +44,62 @@ firebaseRef.child('groups/id')
     render()
 
   })
+actions.login = function(){
+
+  firebaseRef.authWithOAuthPopup("google", function(error, authData){
+
+    // handle the result of the authentication
+    if (error) {
+      console.log("Login Failed!", error);
+    } else {
+      console.log("Authenticated successfully with payload:", authData);
+
+      // create a user object based on authData
+      var user = {
+        duration: authData.google.duration
+        groupID: authData.google.groupID
+        isGroupOwner: authData.google.isGroupOwner
+        lat: authData.google.lat
+        lon: authData.google.lon
+        name: authData.google.displayName
+      }
+
+      var userRef = firebaseRef.child('users').child(user.name)
+
+      // subscribe to the user data
+      userRef.on('value', function(snapshot){
+        data.user = snapshot.val()
+        render()
+      })
+
+      // set the user data
+      userRef.set(user)
+
+    }
+  })
+
+}
+
+actions.logout = function(){
+
+  if (data.user){
+
+    firebaseRef.unauth()
+
+    var userRef = firebaseRef
+      .child('users')
+      .child(data.user.username)
+
+    // unsubscribe to the user data
+    userRef.off()
+
+    // set the user's status to offline
+    userRef.child('status').set('offline')
+
+    data.user = null
+
+    render()
+
+  }
+
+}

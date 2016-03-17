@@ -1,6 +1,15 @@
 MyComponents.Login = React.createClass({
   render: function() {
-    return (
+    if (this.props.user){
+      // user is authenticated
+      return <div className="center-align">
+          <h5>Hello {this.props.user.displayName}!</h5>
+          
+          <a href="#" className="black white-text waves-effect waves-light btn " onClick={this.props.logoutAction}>Logout</a>
+      </div>
+    }
+    else{
+        return (
         <div className="container">
             <div className="row">
               <div className="col m6 offset-m3">
@@ -10,7 +19,7 @@ MyComponents.Login = React.createClass({
                             <div className="row">
                                 <div className="input-field col s12">
                                     <input id="email" type="email" className="validate"></input>
-                                    <label for="email">Email</label>
+                                    <label for="email">Email or Username</label>
                                 </div>
                             </div>
                             <div className="row">
@@ -29,10 +38,11 @@ MyComponents.Login = React.createClass({
                             </div>
                             <div className="divider"></div>
                             <div className="row">
-                                <div className="col m12">
-                                    <p className="right-align">
+                                <div className="col m4 s12 center">
                                         <button className="btn btn-large waves-effect waves-light black" type="button" name="action">Login</button>
-                                    </p>
+                                </div>
+                                <div class="container">
+                                    <a className="waves-effect waves-light btn center" href='#' onclick=onClick={this.props.loginAction}>Google Login </a>
                                 </div>
                             </div>
                         </form>
@@ -41,5 +51,6 @@ MyComponents.Login = React.createClass({
             </div>
         </div>
     );
+    }
   }
 });
