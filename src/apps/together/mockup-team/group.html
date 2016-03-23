@@ -29,6 +29,8 @@
       <div id="app-container">
         <div id="navbar"></div>
         <div id="group-list"></div>
+        <a href="#!" id = "CrtGrp" class="waves-effect waves-light btn modal-trigger black yellow-text">Create New Group</a>
+
       </div>
       <script>
         // MyComponents is a global object where each property is a reference to a component class
@@ -63,6 +65,42 @@
         <!-- Connect the app and data -->
       <script type="text/babel" src="components/navbar.jsx"></script>
       <script type="text/babel" src="components/group-list.jsx"></script>
+      <script type="text/babel">
+	$( "#CrtGrp" ).click(function() {
+		alert('new group');
+		var newID = "00018";
+		var BarChoice = "The West End Tavern";
+		var groupize = 20;
+		var leaderName = "New Group Leader";
+		var groupName = "New Bar Crawl";
+		var crawlDate = "03-22-2016";
+
+    		var ref = new Firebase('https://drinktogether.firebaseio.com/groups/id/');
+    		ref.child(newID).set({
+        		bars: BarChoice,
+        		date: crawlDate,
+			name: groupName,
+			groupID: newID,
+			size: groupize,
+   		 });
+		ref.child(newID).child('listOfUsers').child(leaderName).child(BarChoice).set({
+			StartTime: "15:00",
+			EndTime: "18:00",
+   		 });
+
+
+		var ref2 = new Firebase('https://drinktogether.firebaseio.com/users/');
+		ref2.child(leaderName).set({
+        		lat: '40.01839183647418',
+        		lon: '-105.28007901566103',
+        		name: leaderName,
+        		isGroupOwner: 'True',
+			groupID: newID,
+    		});
+
+
+	});
+	</script>
 
     </body>
 </html>
