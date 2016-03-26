@@ -29,12 +29,20 @@ MyComponents.GroupList = React.createClass({
 					
 					var Bar = group.bars;
     					var ref = new Firebase('https://drinktogether.firebaseio.com/groups/id/' + group.groupID + '/listOfUsers');
-				     	ref.child(username).set({
-       					Bar: { EndTime : group.date , StartTime: group.date }
+				     			
+					ref.child(username).child(Bar).set({
+					StartTime: "15:00",
+					EndTime: "18:00",
+   					 });
+					
+					var ref2 = new Firebase('https://drinktogether.firebaseio.com/users/');
+						ref2.child(username).set({
+        					lat: '40.01839183647418',
+        					lon: '-105.28007901566103',
+        					name: username,
+        					isGroupOwner: 'False',
+						groupID: group.groupID,
     					});
-            					ref.child(person.name).child(randBar).set({
-					EndTime : "18:00" , StartTime: "15:00"
-					});
 				}
 					
 			} 
