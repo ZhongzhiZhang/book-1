@@ -44,23 +44,34 @@ firebaseRef.child('groups/id')
     render()
 
   })
+
+actions.setUserLocation = function(latlng){
+
+  if (data.user){
+    firebaseRef
+      .child('users')
+      .child(data.user.username)
+      .child('pos')
+      .set([latlng.lat, latlng.lng])
+  }
+}
+
 actions.login = function(){
-
   firebaseRef.authWithOAuthPopup("google", function(error, authData){
-
     // handle the result of the authentication
     if (error) {
       console.log("Login Failed!", error);
     } else {
       console.log("Authenticated successfully with payload:", authData);
 
+
       // create a user object based on authData
       var user = {
-        duration: authData.google.duration
-        groupID: authData.google.groupID
-        isGroupOwner: authData.google.isGroupOwner
-        lat: authData.google.lat
-        lon: authData.google.lon
+        duration: 0.000000000,
+        groupID: "00000",
+        isGroupOwner: false,
+        lat: 40.01125266376242,
+        lon: -105.27781252232103,
         name: authData.google.displayName
       }
 

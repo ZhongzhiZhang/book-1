@@ -14,20 +14,21 @@
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
       <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.0.0/lodash.min.js"></script>
       <!-- React -->
       <script src="lib/react.js"></script>
       <script src="lib/react-dom.js"></script>
       
       <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
       
-      <link rel="stylesheet" href="style.css">
+      <!-- <link rel="stylesheet" href="style.css"> -->
       <!-- ReactFire -->
       <script src="https://cdn.firebase.com/libs/reactfire/0.6.0/reactfire.min.js"></script>
       <title>Drink Together</title>
       </head>
       <body>
+      <div id="nav-bar-container"></div>
       <div id="app-container">
-        <div id="navbar"></div>
         <div id="group-list"></div>
       </div>
       <script>
@@ -38,31 +39,15 @@
       <!-- import each component class in components/ -->
       <!-- The order is important. Dependencies must be loaded first -->
         <br>
-        <script type="text/babel">
-        $('.button-collapse').sideNav({
-          menuWidth: 300, // Default is 240
-          edge: 'left', // Choose the horizontal origin
-          closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-        }
-      );
-        var teamBar = new Firebase('https://drinktogether.firebaseio.com/')
-        teamBar.on('value', function(snapshot){
-          var barData = snapshot.val();
-          ReactDOM.render(
-              <MyComponents.NavBar/>,
-              $('#navbar').get(0)
-          );
-          ReactDOM.render(
-              <MyComponents.GroupList/>,
-              $('#group-list').get(0)
-          );
-        });
-        </script>
-
 
         <!-- Connect the app and data -->
+        <!-- Main app container -->
       <script type="text/babel" src="components/navbar.jsx"></script>
+      <script type="text/babel" src="components/app.jsx"></script>
       <script type="text/babel" src="components/group-list.jsx"></script>
+
+      <script type="text/babel" src="components/data.jsx"></script>
+
 
     </body>
 </html>
