@@ -1,6 +1,11 @@
 class NavBar extends React.Component {
   render(){
-    if (this.props.user){
+
+
+    if (window.localStorage["firebase:session::drinktogether"]){
+		var session = window.localStorage["firebase:session::drinktogether"];
+		var seesionObj = JSON.parse(session);
+		var username = seesionObj['google'].displayName;
         return (
           <nav className="black">
                 <div className="nav-wrapper">
@@ -12,18 +17,18 @@ class NavBar extends React.Component {
                         <li><a href="index.html">Home</a></li>
                         <li><a href="map.html">Map</a></li>
                         <li><a href="group.html">Group</a></li>
-                        <li><a href="#" onClick={this.props.actions.logout}>Logout</a></li>
+                        <li><a href="index.html" onClick={this.props.actions.logout}>Logout</a></li>
                     </ul>
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
-                        <li>{this.props.user.name}</li>
+                        <li>{username}</li>
                     </ul>
 
                     <ul className="side-nav" id="mobile-demo">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="map.html">Map</a></li>
                         <li><a href="group.html">Group</a></li>
-                        <li><a href="#" onClick={this.props.actions.logout}>Logout</a></li>
-                        <li>{this.props.user.name}</li>
+                        <li><a href="index.html" onClick={this.props.actions.logout}>Logout</a></li>
+                        <li>{username}</li>
                     </ul>
                 </div>
             </nav>
