@@ -11,31 +11,30 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
       <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.0.0/lodash.min.js"></script>
-
-
+      <!-- React -->
+      <script src="lib/react.js"></script>
+      <script src="lib/react-dom.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+     <script src="https://cdn.firebase.com/libs/reactfire/0.6.0/reactfire.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvjx2rX763ezVHsvdemCY3Fc3vBtsEygo&signed_in=true"></script>
     <script>
 // In the following example, markers appear when the user clicks on the map.
 // Each marker is labeled with a single alphabetical character.
 var labels = '12345';
 var labelIndex = 0;
-
 function initialize() {
   var boulder =  {lat:40.018420740127205 ,lng: -105.27825951576233};
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
     center: boulder
   });
-
   // This event listener calls addMarker() when the map is clicked.
   google.maps.event.addListener(map, 'click', function(event) {
     addMarker(event.latLng, map);
   });
-
   // Add a marker at the center of the map.
   addMarker(boulder, map);
 }
-
 // Adds a marker to the map.
 function addMarker(location, map) {
   // Add the marker at the clicked location, and add the next-available label
@@ -46,10 +45,10 @@ function addMarker(location, map) {
     map: map
   });
 }
-
 google.maps.event.addDomListener(window, 'load', initialize);
-
     </script>
+
+
     <title>Bar Crawl</title>
     <style>
       html, body {
@@ -62,44 +61,36 @@ google.maps.event.addDomListener(window, 'load', initialize);
         width: 75%;
       }
     </style>
+
   </head>
   <body>
-  <nav class="black">
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo center">
-              Bar Crawl Planning
-            </a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="map.html">Map</a></li>
-                <li><a href="group.html">Group</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-            <ul class="side-nav" id="mobile-demo">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="map.html">Map</a></li>
-                <li><a href="group.html">Group</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </div>
-    </nav>
-    <br>
+      <div id="nav-bar-container"></div>
+      <div id="app-container"></div>
      <div class="container" id="map"></div>
      <div class="container"><a href="#!" id = "QtGrp" class="waves-effect waves-light btn modal-trigger black yellow-text">Quit Group</a></div>
-  <script>
+       <script>
+        // MyComponents is a global object where each property is a reference to a component class
+        MyComponents = {}
+      </script>
+
+      <script type="text/babel" src="components/navbar.jsx"></script>
+      <script type="text/babel" src="components/app_map.jsx"></script>
+      <script type="text/babel" src="components/group-list.jsx"></script>
+ <script>
     $('.button-collapse').sideNav({
       menuWidth: 300, // Default is 240
       edge: 'left', // Choose the horizontal origin
       closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
     }
   );
+
+
    $( "#QtGrp" ).click(function() {
-	var usrName = "Scotty Me";
+		var session = window.localStorage["firebase:session::drinktogether"];
+		var seesionObj = JSON.parse(session);
+	var usrName = seesionObj['google'].displayName;
 console.log('leave', usrName)
-
     var groupID;
-
 	var ref2 = new Firebase('https://drinktogether.firebaseio.com/users/'+usrName+'/groupID/');
 		console.log('URL: ', 'https://drinktogether.firebaseio.com/users/'+usrName+'/groupID/')
 	ref2.on('value', function(snapshot){
@@ -116,7 +107,6 @@ console.log('leave', usrName)
         	}
     };
     ref3.child(usrName).remove(onComplete2);
-
 		var ref2 = new Firebase('https://drinktogether.firebaseio.com/users/'+usrName);
     		ref2.once('value', function(snapshot){
 		        var user = snapshot.val();
@@ -128,12 +118,10 @@ console.log('leave', usrName)
 			groupID: "000",
     		});
 		})
-
-
-
-
 	});
    });
-  </script>   
+  </script>  
+
+      <script type="text/babel" src="components/data.jsx"></script> 
   </body>
 </html>
