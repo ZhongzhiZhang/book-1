@@ -86,6 +86,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </nav>
     <br>
      <div class="container" id="map"></div>
+     <div class="container"><a href="#!" id = "QtGrp" class="waves-effect waves-light btn modal-trigger black yellow-text">Quit Group</a></div>
   <script>
     $('.button-collapse').sideNav({
       menuWidth: 300, // Default is 240
@@ -93,6 +94,46 @@ google.maps.event.addDomListener(window, 'load', initialize);
       closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
     }
   );
+   $( "#QtGrp" ).click(function() {
+	var usrName = "Scotty Me";
+console.log('leave', usrName)
+
+    var groupID;
+
+	var ref2 = new Firebase('https://drinktogether.firebaseio.com/users/'+usrName+'/groupID/');
+		console.log('URL: ', 'https://drinktogether.firebaseio.com/users/'+usrName+'/groupID/')
+	ref2.on('value', function(snapshot){
+		var ID = snapshot.val();
+		groupID = ID;
+		console.log('Leaving: ', groupID)
+    		var ref3 = new Firebase('https://drinktogether.firebaseio.com/groups/id/' + groupID + '/listOfUsers/');
+		console.log('Person: ', 'https://drinktogether.firebaseio.com/groups/id/' + groupID + '/listOfUsers/')
+    		var onComplete2 = function(error) {
+       		 if (error) {
+          			  console.log('Leave Synchronization failed');
+       			 } else {
+            				console.log('Leave Synchronization succeeded');
+        	}
+    };
+    ref3.child(usrName).remove(onComplete2);
+
+		var ref2 = new Firebase('https://drinktogether.firebaseio.com/users/'+usrName);
+    		ref2.once('value', function(snapshot){
+		        var user = snapshot.val();
+			ref2.set({
+        		lat: user.lat,
+        		lon: user.lon,
+        		name: user.name,
+        		isGroupOwner: 'False',
+			groupID: "000",
+    		});
+		})
+
+
+
+
+	});
+   });
   </script>   
   </body>
 </html>
