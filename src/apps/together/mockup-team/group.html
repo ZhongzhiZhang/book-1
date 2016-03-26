@@ -15,14 +15,14 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
       <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.0.0/lodash.min.js"></script>
-      <!-- React -->
+
       <script src="lib/react.js"></script>
       <script src="lib/react-dom.js"></script>
       
       <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
       
       <!-- <link rel="stylesheet" href="style.css"> -->
-      <!-- ReactFire -->
+
       <script src="https://cdn.firebase.com/libs/reactfire/0.6.0/reactfire.min.js"></script>
       <title>Drink Together</title>
       </head>
@@ -30,9 +30,58 @@
       <div id="nav-bar-container"></div>
       <div id="app-container">
         <div id="group-list"></div>
-        <a href="#!" id = "CrtGrp" class="waves-effect waves-light btn modal-trigger black yellow-text">Create New Group</a>
+
 
       </div>
+	<br>
+	<br>
+       <div class = "center"> <a href="#modal1"  class="waves-effect waves-light btn modal-trigger black yellow-text">Create New Group</a>
+            <div id="modal1" class="modal">
+            	<div class="modal-content">
+			<h4>Create Your Bar Crawl Group</h4>
+ <div class="row">
+         <div class="input-field col s12">
+           <i class="material-icons prefix">mode_edit</i>
+           <input value="" id="group_name" type="text" class="validate">
+           <label for="title">Group Name</label>
+         </div>
+       </div>
+
+
+       <div  class="row">
+         <div class="input-field col s12">
+           <i class="material-icons prefix">mode_edit</i>
+           <label>Bar Choice</label>
+           <input type="text" id="Bar_Choice"/>
+         </div>
+       </div>
+
+       <div  class="row">
+         <div class="input-field col s12">
+           <i class="material-icons prefix">mode_edit</i>
+           <label>GroupSize</label>
+           <input type="text" id="Capacity"/>
+         </div>
+       </div>
+
+       <div class="row">
+         <div class="input-field col s12">
+           <i class="material-icons prefix">today</i>
+           <label>Crawl Date</label>
+           <input type="date" class="datepicker" id="date">
+         </div>
+       </div>
+
+
+     </div>
+
+        <div class="modal-footer" >
+        <a href="#!" id = "Sbmt" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+        </div>
+
+		</div>
+	</div>
+	</div>
       <script>
         // MyComponents is a global object where each property is a reference to a component class
         MyComponents = {}
@@ -40,7 +89,7 @@
 
       <!-- import each component class in components/ -->
       <!-- The order is important. Dependencies must be loaded first -->
-        <br>
+
 
         <!-- Connect the app and data -->
         <!-- Main app container -->
@@ -48,15 +97,40 @@
       <script type="text/babel" src="components/app.jsx"></script>
       <script type="text/babel" src="components/group-list.jsx"></script>
       <script type="text/babel">
-	$( "#CrtGrp" ).click(function() {
-		alert('new group');
-		var newID = "00018";
-		var BarChoice = "The West End Tavern";
-		var groupize = 20;
-		var leaderName = "New Group Leader";
-		var groupName = "New Bar Crawl";
-		var crawlDate = "03-22-2016";
+	$(document).ready(function(){
+   	// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+  	  $('.modal-trigger').leanModal();
 
+          $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15 // Creates a dropdown of 15 years to control year
+          });
+ 	 });
+
+
+
+	$( "#Sbmt" ).click(function() {
+
+       		 var ref3 = new Firebase('https://drinktogether.firebaseio.com/groups/id/');
+   		 ref3.once('value', function(snapshot){
+
+		var session = window.localStorage["firebase:session::drinktogether"];
+		var seesionObj = JSON.parse(session);
+		
+
+
+		var leaderName = seesionObj['google'].displayName;
+
+		var BarChoice = $("#Bar_Choice").val();
+		var groupize = $("#Capacity").val();
+		var groupName = $("#group_name").val();
+		var crawlDate =  $("#date").val();
+;
+
+
+   	 	var idlist = snapshot.val()
+    		var idpool = Object.keys(idlist)
+		  var newID = "000"+(Number(idpool[idpool.length-1])+1);
     		var ref = new Firebase('https://drinktogether.firebaseio.com/groups/id/');
     		ref.child(newID).set({
         		bars: BarChoice,
@@ -79,6 +153,9 @@
         		isGroupOwner: 'True',
 			groupID: newID,
     		});
+   		 })
+
+
 
 
 	});
