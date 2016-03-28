@@ -22,7 +22,7 @@ MyComponents.GroupList = React.createClass({
         <td>{ group.bars }</td>    
         <td><ul>{ rows   }</ul></td>
         <td>{ group.date }</td>
-        <td><a onClick={function() {alert(group.groupID); 		
+        <td align="center" width="1px"><a onClick={function() {alert(group.groupID); 		
 					var session = window.localStorage["firebase:session::drinktogether"];
 					var seesionObj = JSON.parse(session);
 					var username = seesionObj['google'].displayName;alert(username);
