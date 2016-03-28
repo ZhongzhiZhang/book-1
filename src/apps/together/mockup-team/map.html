@@ -7,192 +7,125 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-
-      <!-- circle stylesheet -->
-      <link rel="stylesheet" href="css/style.css">
-
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
       <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.0.0/lodash.min.js"></script>
-
+      <!-- React -->
       <script src="lib/react.js"></script>
       <script src="lib/react-dom.js"></script>
-      
       <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
-      
-      <!-- <link rel="stylesheet" href="style.css"> -->
+     <script src="https://cdn.firebase.com/libs/reactfire/0.6.0/reactfire.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvjx2rX763ezVHsvdemCY3Fc3vBtsEygo&signed_in=true"></script>
+    <script>
+// In the following example, markers appear when the user clicks on the map.
+// Each marker is labeled with a single alphabetical character.
+var labels = '12345';
+var labelIndex = 0;
+function initialize() {
+  var boulder =  {lat:40.018420740127205 ,lng: -105.27825951576233};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 12,
+    center: boulder
+  });
+  // This event listener calls addMarker() when the map is clicked.
+  google.maps.event.addListener(map, 'click', function(event) {
+    addMarker(event.latLng, map);
+  });
+  // Add a marker at the center of the map.
+  addMarker(boulder, map);
+}
+// Adds a marker to the map.
+function addMarker(location, map) {
+  // Add the marker at the clicked location, and add the next-available label
+  // from the array of alphabetical characters.
+  var marker = new google.maps.Marker({
+    position: location,
+    label: labels[labelIndex++ % labels.length],
+    map: map
+  });
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 
-      <script src="https://cdn.firebase.com/libs/reactfire/0.6.0/reactfire.min.js"></script>
-      <title>Drink Together</title>
-      </head>
-      <body>
+
+    <title>Bar Crawl</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 75%;
+        width: 75%;
+      }
+    </style>
+
+  </head>
+  <body>
       <div id="nav-bar-container"></div>
-      <div id="app-container">
-        <div id="group-list"></div>
-
-
-      </div>
-	<br>
-	<br>
-       <div class = "center"> <a href="#modal1"  class="waves-effect waves-light btn modal-trigger black yellow-text">Create New Group</a>
-            <div id="modal1" class="modal modal-fixed-footer">
-            	<div class="modal-content">
-			<h4>Create Your Bar Crawl Group</h4>
- <div class="row">
-         <div class="input-field col s12">
-           <i class="material-icons prefix">mode_edit</i>
-           <input value="" id="group_name" type="text" class="validate">
-           <label for="title">Group Name</label>
-         </div>
-       </div>
-
-
-       <div  class="row">
-         <div class="input-field col s12">
-             <select id="barChoice" style="width:50%">
-                       <option value="" disabled selected>Choose Bar</option>
-
-           </select>
-
-         </div>
-       </div>
-
-       <div  class="row">
-         <div class="input-field col s12">
-           <i class="material-icons prefix">mode_edit</i>
-           <label>GroupSize</label>
-           <input type="text" id="Capacity"/>
-         </div>
-       </div>
-
-       <div class="row">
-         <div class="input-field col s12">
-           <i class="material-icons prefix">today</i>
-           <label>Crawl Date</label>
-           <input type="date" class="datepicker" id="date">
-         </div>
-       </div>
-
-
-     </div>
-
-        <div class="modal-footer" >
-        <a href="#!" id = "Sbmt" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
-        </div>
-
-		</div>
-	</div>
-	</div>
-      <script>
+      
+      <div id="app-container"></div>
+     <div class="container" id="map"></div>
+     <div class="container"><a href="#!" id = "QtGrp" class="waves-effect waves-light btn modal-trigger black yellow-text">Quit Group</a></div>
+       <script>
         // MyComponents is a global object where each property is a reference to a component class
         MyComponents = {}
       </script>
 
-      <!-- import each component class in components/ -->
-      <!-- The order is important. Dependencies must be loaded first -->
-
-
-        <!-- Connect the app and data -->
-        <!-- Main app container -->
       <script type="text/babel" src="components/navbar.jsx"></script>
-      <script type="text/babel" src="components/app.jsx"></script>
+      <script type="text/babel" src="components/app_map.jsx"></script>
       <script type="text/babel" src="components/group-list.jsx"></script>
-      <script type="text/babel">
-    
-   
-      
-      
-	$(document).ready(function(){
-   	// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-  	  $('.modal-trigger').leanModal();
-       $('select').material_select();
-       
-          $('.datepicker').pickadate({
-            selectMonths: true, // Creates a dropdown to control month
-            selectYears: 15 // Creates a dropdown of 15 years to control year
-          });
- 	 });
+ <script>
+    $('.button-collapse').sideNav({
+      menuWidth: 300, // Default is 240
+      edge: 'left', // Choose the horizontal origin
+      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    }
+  );
 
-    // create a firebase reference to the root
-        var ref = new Firebase('https://drinktogether.firebaseio.com/yelp')
-       
-        ref.child('businesses').once('value', function(snapshot){
-        var bars = snapshot.val()
-        
-        for (var barNumber in bars){
-            var bar = bars[barNumber]
 
-             var option = $('<option value="'+barNumber+'">'+bar.name+'</option>');
-             console.log(option)
-            $('#barChoice').append(option);
-        }
-         
-              $('#barChoice').trigger("contentChanged");
-
-      })
-      
-         $('select').on('contentChanged', function() {
-    // re-initialize (update)
-    $(this).material_select();
-  });
-  
-	$( "#Sbmt" ).click(function() {
-
-       		 var ref3 = new Firebase('https://drinktogether.firebaseio.com/groups/id/');
-   		 ref3.once('value', function(snapshot){
-
+   $( "#QtGrp" ).click(function() {
 		var session = window.localStorage["firebase:session::drinktogether"];
 		var seesionObj = JSON.parse(session);
-		
-
-
-		var leaderName = seesionObj['google'].displayName;
-
-		var BarChoice = $("#barChoice").val();
-		var groupize = $("#Capacity").val();
-		var groupName = $("#group_name").val();
-		var crawlDate =  $("#date").val();
-;
-
-
-   	 	var idlist = snapshot.val()
-    		var idpool = Object.keys(idlist)
-		  var newID = "000"+(Number(idpool[idpool.length-1])+1);
-    		var ref = new Firebase('https://drinktogether.firebaseio.com/groups/id/');
-    		ref.child(newID).set({
-        		bars: BarChoice,
-        		date: crawlDate,
-			name: groupName,
-			groupID: newID,
-			size: groupize,
-   		 });
-		ref.child(newID).child('listOfUsers').child(leaderName).child(BarChoice).set({
-			StartTime: "15:00",
-			EndTime: "18:00",
-   		 });
-
-
-		var ref2 = new Firebase('https://drinktogether.firebaseio.com/users/');
-		ref2.child(leaderName).set({
-        		lat: '40.01839183647418',
-        		lon: '-105.28007901566103',
-        		name: leaderName,
-        		isGroupOwner: 'True',
-			groupID: newID,
+	var usrName = seesionObj['google'].displayName;
+console.log('leave', usrName)
+    var groupID;
+	var ref2 = new Firebase('https://drinktogether.firebaseio.com/users/'+usrName+'/groupID/');
+		console.log('URL: ', 'https://drinktogether.firebaseio.com/users/'+usrName+'/groupID/')
+	ref2.on('value', function(snapshot){
+		var ID = snapshot.val();
+		groupID = ID;
+		console.log('Leaving: ', groupID)
+    		var ref3 = new Firebase('https://drinktogether.firebaseio.com/groups/id/' + groupID + '/listOfUsers/');
+		console.log('Person: ', 'https://drinktogether.firebaseio.com/groups/id/' + groupID + '/listOfUsers/')
+    		var onComplete2 = function(error) {
+       		 if (error) {
+          			  console.log('Leave Synchronization failed');
+       			 } else {
+            				console.log('Leave Synchronization succeeded');
+        	}
+    };
+    ref3.child(usrName).remove(onComplete2);
+		var ref2 = new Firebase('https://drinktogether.firebaseio.com/users/'+usrName);
+    		ref2.once('value', function(snapshot){
+		        var user = snapshot.val();
+			ref2.set({
+        		lat: user.lat,
+        		lon: user.lon,
+        		name: user.name,
+        		isGroupOwner: 'False',
+			groupID: "000",
     		});
-   		 })
-
-
-
-
+		})
 	});
-	</script>
 
-      <script type="text/babel" src="components/data.jsx"></script>
+window.location.href = "group.html";
 
+   });
+  </script>  
 
-    </body>
+      <script type="text/babel" src="components/data.jsx"></script> 
+  </body>
 </html>
-
-
