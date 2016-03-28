@@ -14,10 +14,10 @@ var actions = {}
 // 'data' and 'actions' are injected into the app
 function render(){
   ReactDOM.render(
-    <MyComponents.App
+    <MyComponents.AppMap
         data={data}
         actions={actions}/>,
-    $('#app-container').get(0)
+    $('#app-map-container').get(0)
   )
 }
 
@@ -33,7 +33,7 @@ firebaseRef.child('yelp/businesses')
   .on('value', function(snapshot){
 
     data.businesses = _.values(snapshot.val())
-
+    console.log(data.businesses)
     render()
 
   })

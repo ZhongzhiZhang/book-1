@@ -5,7 +5,7 @@ class App extends React.Component {
       	<MyComponents.NavBar 
       		user={this.props.data.user}
       		actions={this.props.actions}/>
-      	<MyComponents.GroupList groups={this.props.data.groups}/>
+      	<MyComponents.GroupList/>
       </div>
       );
   }

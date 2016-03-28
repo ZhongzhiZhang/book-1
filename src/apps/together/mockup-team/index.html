@@ -10,7 +10,10 @@
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
       <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
-      <script src="js/custom.js" type="text/javascript"></script>`
+      <script src="js/custom.js" type="text/javascript"></script>
+      <!-- React -->
+      <script src="lib/react.js"></script>
+      <script src="lib/react-dom.js"></script>
 
 <!-- Firechat -->
 <link rel='stylesheet' href='https://cdn.firebase.com/libs/firechat/2.0.1/firechat.min.css' />
@@ -20,8 +23,8 @@
   <title>Bar Crawl</title>
   </head>
   <body style="background-color:black;">
+  <div id="nav-bar-container"></div>
    <div id="app-container">
-        <div id="navbar"></div>
       </div>
     <br>
     <script>
@@ -31,37 +34,20 @@
       closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
     }
   );
-	// Create a new Firebase reference, and a new instance of the Login client
-	var chatRef = new Firebase('https://barcrawl.firebaseio.com/chat');
+  </script>
+  <script>
+        // MyComponents is a global object where each property is a reference to a component class
+        MyComponents = {}
+      </script>
 
-	function login() {
-	  chatRef.authWithOAuthPopup("google", function(error, authData) {
-	  if (error) {
-	    console.log("Login Failed!", error);
-	  } else {
-	    console.log("Authenticated successfully with payload:", authData);
-	  }
-	});
-	}
+      <!-- import each component class in components/ -->
+      <!-- The order is important. Dependencies must be loaded first -->
+        <br>
 
-	chatRef.onAuth(function(authData) {
-	  // Once authenticated, instantiate Firechat with our user id and user name
-	  if (authData) {
-	    initChat(authData);
-	  }
-	});
-	function initChat(authData) {
-	  var chat = new FirechatUI(chatRef, document.getElementById('firechat-wrapper'));
-	  chat.setUser(authData.uid, authData[authData.provider].displayName);
-		}
-		var chat = new Firechat(firebaseRef);
-	chat.setUser(userId, userName, function(user) {
-	  chat.resumeSession();
-});
-	</script>
-<!-- 	<div class="container">
-		<a class="waves-effect waves-light btn center" href='#' onclick='login();'>Login with Google <i class="material-icons right">perm_identity</i></a>
-	</div> -->
+        <!-- Connect the app and data -->
+        <!-- Main app container -->
+      <script type="text/babel" src="components/navbar.jsx"></script>
+      <script type="text/babel" src="components/app.jsx"></script>
 
   <div class="slider">
     <ul class="slides">
@@ -99,7 +85,6 @@
 	        <ul>
 	          <li><a class="grey-text text-lighten-3" href="map.html">Map</a></li>
 	          <li><a class="grey-text text-lighten-3" href="group.html">Group</a></li>
-	          <li><a class="grey-text text-lighten-3" href="login.html">Login</a></li>
 	        </ul>
 	      </div>
 	    </div>
