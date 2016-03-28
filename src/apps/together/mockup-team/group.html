@@ -125,7 +125,7 @@
         for (var barNumber in bars){
             var bar = bars[barNumber]
 
-	     var option = $('<option value="'+barNumber+','+bar.name+'">'+bar.name+'</option>');
+	     var option = $('<option value="'+barNumber+','+bar.name+'">'+bar.name+'(Rating: '+bar.rating+')</option>');
              console.log(option)
             $('#barChoice').append(option);
         }
