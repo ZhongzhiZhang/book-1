@@ -13,10 +13,17 @@ class MapView extends React.Component {
       iconAnchor: [0, 40],
       popupAnchor: [20, -30]
       })
-
+      var mapURL = "http://www.google.com/maps/place/" + u.location.coordinate.latitude + "," + u.location.coordinate.longitude; 
       return <Marker position={pos} key={i} icon={u_icon}>
         <Popup>
-          <span><b> {u.name} </b></span>
+          <span><b> {u.name} </b>
+          <br>
+          <a  target="_blank" href={u.mobile_url}>Link to Website</a> 
+          <br></br>
+          <a  target="_blank" href= {mapURL} >Link Google Maps</a>
+          </br>
+          Rating: {u.rating}
+          </span>
         </Popup>
       </Marker>
     })
