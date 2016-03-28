@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -64,7 +65,7 @@
               <i class="material-icons prefix">account_circle</i>
               <label>Estimate of Group Size</label>
             </div>
-              <input type="range" id="capacity" min="0" max="40" />
+              <input type="range" id="Capacity" min="0" max="40" />
          </div>
        </div>
 
@@ -125,7 +126,7 @@
         for (var barNumber in bars){
             var bar = bars[barNumber]
 
-	     var option = $('<option value="'+barNumber+','+bar.name+'">'+bar.name+'(Rating: '+bar.rating+')</option>');
+	     var option = $('<option value="'+barNumber+','+bar.name+'">'+bar.name+'(Ratings: '+bar.rating+')</option>');
              console.log(option)
             $('#barChoice').append(option);
         }
@@ -201,5 +202,6 @@
 
     </body>
 </html>
+
 
 
