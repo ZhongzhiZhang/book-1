@@ -123,7 +123,7 @@
         for (var barNumber in bars){
             var bar = bars[barNumber]
 
-             var option = $('<option value="'+bar.name+'">'+bar.name+'</option>');
+	     var option = $('<option value="'+barNumber+','+bar.name+'">'+bar.name+'</option>');
              console.log(option)
             $('#barChoice').append(option);
         }
@@ -150,6 +150,10 @@
 		var leaderName = seesionObj['google'].displayName;
 
 		var BarChoice = $("#barChoice").val();
+		var BarInfo = BarChoice.split(',');
+		//alert(BarInfo[0]);
+                //alert(BarInfo[1]);
+		//alert(BarChoice);
 		var groupize = $("#Capacity").val();
 		var groupName = $("#group_name").val();
 		var crawlDate =  $("#date").val();
@@ -161,11 +165,12 @@
 		  var newID = "000"+(Number(idpool[idpool.length-1])+1);
     		var ref = new Firebase('https://drinktogether.firebaseio.com/groups/id/');
     		ref.child(newID).set({
-        		bars: BarChoice,
+        		bars: BarInfo[1],
         		date: crawlDate,
 			name: groupName,
 			groupID: newID,
 			size: groupize,
+			barID: BarInfo[0],
    		 });
 		ref.child(newID).child('listOfUsers').child(leaderName).child(BarChoice).set({
 			StartTime: "15:00",
